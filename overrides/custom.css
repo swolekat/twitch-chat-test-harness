@@ -87,11 +87,10 @@ body {
 
 .badge {
 	display: inline-block;
-	margin-right: 0.2em;
+	margin-left: 0.2em;
 	position: relative;
 	height: 1em;
 	vertical-align: middle;
-	top: -0.1em;
 }
 
 .name {
@@ -110,14 +109,18 @@ body {
 	color: #fff !important;
 }
 
-#log > div.owner {
-	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+#log > div.owner,
+#log > div.sub,
+#log > div.vip,
+#log > div.founder {
 	background-size: cover;
 	background-position: center;
 }
 
-
-#log > div.owner::before {
+#log > div.owner::before,
+#log > div.sub::before,
+#log > div.vip::before,
+#log > div.founder::before {
 	content: '';
 	background: #000;
 	opacity: 0.4;
@@ -127,4 +130,36 @@ body {
 	left: 0;
 	bottom: 0;
 	right: 0;
+}
+
+#log > div.sub {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/dumbells.jpg");
+}
+
+#log > div.sub::before {
+	opacity: 0.4;
+}
+
+#log > div.vip {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
+}
+
+#log > div.vip::before {
+	opacity: 0.4;
+}
+
+#log > div.founder {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
+}
+
+#log > div.founder::before {
+	opacity: 0.4;
+}
+
+#log > div.owner {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+}
+
+#log > div.owner::before {
+	opacity: 0.4;
 }

@@ -3,10 +3,10 @@
 
 	var classFromObjMap = {
 		'mod': function(detail) {
-			return detail.mod !== '0';
+			return !!detail.mod && detail.mod !== '0';
 		},
 		'sub': function(detail) {
-			return detail.subscriber !== '0';
+			return !!detail.subscriber && detail.subscriber !== '0';
 		},
 		'vip': function(detail) {
 			return getBadgesString(detail).indexOf('vip/1') !== -1;

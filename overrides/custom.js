@@ -1,23 +1,23 @@
-(() => {
-	const getBadgesString = detail => detail?.badges|| '';
+(function(){
+	var getBadgesString = detail => detail.badges || '';
 
-	const classFromObjMap = {
-		'mod': (detail) => {
+	var classFromObjMap = {
+		'mod': function(detail) {
 			return detail.mod !== '0';
 		},
-		'sub': (detail) => {
+		'sub': function(detail) {
 			return detail.subscriber !== '0';
 		},
-		'vip': (detail) => {
-			return getBadgesString(detail).includes('vip/1');
+		'vip': function(detail) {
+			return getBadgesString(detail).indexOf('vip/1') !== -1;
 		},
-		'founder': (detail) => {
-			return getBadgesString(detail).includes('found/0');
+		'founder': function(detail) {
+			return getBadgesString(detail).indexOf('found/0') !== -1;
 		},
-		'prime': (detail) => {
-			return getBadgesString(detail).includes('premium');
+		'prime': function(detail)  {
+			return getBadgesString(detail).indexOf('premium') !== -1;
 		},
-		'owner': (detail) => {
+		'owner': function(detail) {
 			return detail.owner;
 		},
 	};
@@ -33,30 +33,30 @@
 		// obj will contain information about the event
 		// by setting the timeout to 0 we should be able to guarantee the message has been rendered
 		setTimeout(() => {
-			const {detail} = obj;
+			var detail = obj.detail;
 			if(!detail){
 				return;
 			}
-			const id = detail?.tags?.id;
-			const classes = Object.keys(classFromObjMap).filter(className => classFromObjMap[className](detail)).join(' ');
-			const messagesByUser = document.querySelectorAll(`[data-id="${id}"]`);
+			var id = detail.tags.id;
+			var classes = Object.keys(classFromObjMap).filter(function(className) { return classFromObjMap[className](detail)}).join(' ');
+			var messagesByUser = document.querySelectorAll('[data-id="'+id+'"]');
 			if(!messagesByUser){
 				return;
 			}
-			messagesByUser.forEach(message => {
-				if(message.className.includes('already-done')){
+			messagesByUser.forEach(function(message) {
+				if(message.className.indexOf('already-done') !== -1){
 					return;
 				}
 
-				const color = message.getAttribute('data-color');
+				var color = message.getAttribute('data-color');
 
 				if(classes === ''){
-					message.className = `${message.className} already-done`;
-					message.style = `background: ${color}`;
+					message.className = message.className+ ' already-done';
+					message.style = 'background: '+color;
 					return;
 				}
-				message.className = `already-done ${classes}`;
-				message.style = `color: ${color}`;
+				message.className = 'already-done '+classes;
+				message.style = 'color: '+ color;
 			});
 		}, 0);
 	});

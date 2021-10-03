@@ -62,7 +62,7 @@ body {
 
 #log .message,#log .meta {
 	position: relative;
-	z-index: 2;
+	z-index: 3;
 }
 
 #log .meta {
@@ -97,25 +97,28 @@ body {
 }
 
 #log > div {
-	background: rgba(100, 100, 100, 40);
+	background: transparent;
 	margin-bottom: 10px;
 	padding: 10px;
 	display: block;
-	border-radius: 4px;
 	position: relative;
+}
+
+#log > div .background-image {
+	display: none;
 }
 
 #log > div.nonsub {
 	color: #fff !important;
+	background: rgba(100, 100, 100, 40);
 }
 
-#log > div.owner::before,
-#log > div.sub::before,
-#log > div.vip::before,
-#log > div.founder::before {
-	content: '';
-	background: #000;
-	opacity: 0.4;
+#log > div.owner .background-image,
+#log > div.sub .background-image,
+#log > div.vip .background-image,
+#log > div.founder .background-image {
+	display: block;
+	opacity: 0.7;
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -124,48 +127,33 @@ body {
 	right: 0;
 }
 
-#log > div.sub {
+
+#log > div.sub .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/dumbells.jpg");
 	background-size: cover;
 	background-position: center;
 }
 
-#log > div.vip {
+#log > div.vip .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
 	background-size: cover;
 	background-position: center;
 }
 
-#log > div.vip::before {
-	opacity: 0.4;
-}
-
-#log > div.founder {
+#log > div.founder .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
 	background-size: cover;
 	background-position: center;
 }
 
-#log > div.founder::before {
-	opacity: 0.4;
-}
-
-#log > div.mod {
+#log > div.mod .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
 	background-size: cover;
 	background-position: center;
 }
 
-#log > div.mod::before {
-	opacity: 0.4;
-}
-
-#log > div.owner {
+#log > div.owner .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
 	background-size: cover;
 	background-position: center;
-}
-
-#log > div.owner::before {
-	opacity: 0.4;
 }

@@ -1,0 +1,618 @@
+<html style="background-color: transparent;"><head>
+	<title>Chat Box Widget</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<style id="theme">@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,700);
+
+  body {
+	  background: #FFFFFF;
+	  color: #FAFAFA;
+	  text-shadow: 0 0 1px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.6);
+  }
+
+  html, body {
+	  height: 100%;
+	  overflow: hidden;
+  }
+
+  #log {
+	  font: 600 22px "Open Sans";
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  box-sizing: border-box;
+	  overflow: hidden;
+	  padding: 10px 15px;
+	  padding-top: 100px;
+  }
+
+  #log>div {
+	  margin-bottom: 5px;
+	  background: linear-gradient(rgba(70, 70, 70, 0.6), rgba(50, 50, 50, 0.7));
+	  padding: 5px 10px 10px;
+	  animation: flipInX 500ms ease, fadeOutUp 1s ease 15000ms forwards;
+	  -webkit-animation: flipInX 500ms ease, fadeOutUp 1s ease 15000ms forwards;
+	  border-radius: 3px;
+	  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  }
+
+  #log>div.deleted {
+	  visibility: hidden;
+  }
+
+  .meta {
+	  display: block;
+	  line-height: 1em;
+  }
+
+  .message {
+	  word-wrap: break-word;
+	  line-height: 1.5em;
+  }
+
+  .name {
+	  font-size: 0.6em;
+	  text-transform: uppercase;
+	  font-weight: 700;
+  }
+
+  .colon {
+	  display: none;
+  }
+
+  .badge {
+	  float: right;
+	  padding-left: 5px;
+	  height: 0.8em;
+  }
+
+  #log .emote {
+	  background-repeat: no-repeat;
+	  background-position: center;
+	  padding: 0.1em;
+	  background-size: contain;
+  }
+
+  #log .emote img {
+	  display: inline-block;
+	  height: 1em;
+	  opacity: 0;
+	  vertical-align: top;
+  }
+	</style>
+	<link rel="stylesheet" type="text/css" href="chrome-extension://fleenceagaplaefnklabikkmocalkcpo/assets/fonts/MyFontsWebfontsKit.css"><link id="avast_os_ext_custom_font" href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"></head>
+
+	<body style="margin: 0px; background-color: transparent;" data-whatinput="mouse">
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+		<div id="custom_html">
+			<div id="log" class="sl__chat__layout">
+
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+				<div data-from="moltenb" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">moltenb</span>
+        </span>
+
+					<span class="message">
+            pog
+        </span>
+				</div>
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+				<div data-from="ellisonfire" data-id="">
+        <span class="meta" style="color: #910D0D">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5d9f2208-5dd8-11e7-8513-2ff4adfae661/1" class="badge subscriber-icon"></span>
+            <span class="name">ellisonfire</span>
+        </span>
+
+					<span class="message">
+            SimulationCraft and Pawn
+        </span>
+				</div>
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+				<div data-from="DatSheppy" data-id="">
+        <span class="meta" style="color: #FF0000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/825f1ff2-b45a-47cf-b081-93ff60c44c33/1" class="badge subscriber-icon"></span>
+            <span class="name">DatSheppy</span>
+        </span>
+
+					<span class="message">
+            Its happening guys
+        </span>
+				</div><div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+				<span class="message">
+            never lucky!
+        </span>
+			</div>
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+				<div data-from="moltenb" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">moltenb</span>
+        </span>
+
+					<span class="message">
+            pog
+        </span>
+				</div>
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+				<div data-from="ellisonfire" data-id="">
+        <span class="meta" style="color: #910D0D">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5d9f2208-5dd8-11e7-8513-2ff4adfae661/1" class="badge subscriber-icon"></span>
+            <span class="name">ellisonfire</span>
+        </span>
+
+					<span class="message">
+            SimulationCraft and Pawn
+        </span>
+				</div>
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+				<div data-from="Z4NN1N" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5d9f2208-5dd8-11e7-8513-2ff4adfae661/1" class="badge subscriber-icon"><img src="https://static-cdn.jtvnw.net/badges/v1/bbbe0db0-a598-423e-86d0-f9fb98ca1933/1" class="badge premium-icon"></span>
+            <span class="name">Z4NN1N</span>
+        </span>
+
+					<span class="message">
+            you always think that...
+        </span>
+				</div><div data-from="Z4NN1N" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5d9f2208-5dd8-11e7-8513-2ff4adfae661/1" class="badge subscriber-icon"><img src="https://static-cdn.jtvnw.net/badges/v1/bbbe0db0-a598-423e-86d0-f9fb98ca1933/1" class="badge premium-icon"></span>
+            <span class="name">Z4NN1N</span>
+        </span>
+
+				<span class="message">
+            you always think that...
+        </span>
+			</div>
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+				<div data-from="DatSheppy" data-id="">
+        <span class="meta" style="color: #FF0000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/825f1ff2-b45a-47cf-b081-93ff60c44c33/1" class="badge subscriber-icon"></span>
+            <span class="name">DatSheppy</span>
+        </span>
+
+					<span class="message">
+            Its happening guys
+        </span>
+				</div>
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+
+				<div data-from="Pini2911" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Pini2911</span>
+        </span>
+
+					<span class="message">
+            That move was POG
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+				<div data-from="Z4NN1N" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5d9f2208-5dd8-11e7-8513-2ff4adfae661/1" class="badge subscriber-icon"><img src="https://static-cdn.jtvnw.net/badges/v1/bbbe0db0-a598-423e-86d0-f9fb98ca1933/1" class="badge premium-icon"></span>
+            <span class="name">Z4NN1N</span>
+        </span>
+
+					<span class="message">
+            you always think that...
+        </span>
+				</div><div data-from="moltenb" data-id="">
+        <span class="meta" style="color: #8A2BE2">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">moltenb</span>
+        </span>
+
+				<span class="message">
+            pog
+        </span>
+			</div>
+				<div data-from="GodOfHuskies" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">GodOfHuskies</span>
+        </span>
+
+					<span class="message">
+            Is he live right now?
+        </span>
+				</div>
+				<div data-from="locoroco0o" data-id="">
+        <span class="meta" style="color: #008000">
+            <span class="badges">
+            <img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" class="badge broadcaster-icon"></span>
+            <span class="name">locoroco0o</span>
+        </span>
+
+					<span class="message">
+            never lucky!
+        </span>
+				</div>
+				<div data-from="Undeviginti19" data-id="">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+
+				<div data-from="Stauswave" data-id="">
+        <span class="meta" style="color: #00FF7F">
+            <span class="badges">
+            </span>
+            <span class="name">Stauswave</span>
+        </span>
+
+					<span class="message">
+            yea that's life
+        </span>
+				</div>
+
+				<div data-from="Undeviginti19" data-id="" class="owner">
+        <span class="meta" style="color: #1E90FF">
+            <span class="badges">
+            </span>
+            <span class="name">Undeviginti19</span>
+        </span>
+
+					<span class="message">
+            He can still win this one
+        </span>
+				</div>
+			</div>
+
+
+			<link rel="stylesheet" href="./overrides/custom.css" />
+			<script src="./overrides/custom.js" />
+
+		</div>
+
+	</body></html>

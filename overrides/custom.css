@@ -150,6 +150,16 @@ body {
 	opacity: 0.4;
 }
 
+#log > div.mod {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
+	background-size: cover;
+	background-position: center;
+}
+
+#log > div.mod::before {
+	opacity: 0.4;
+}
+
 #log > div.owner {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
 	background-size: cover;

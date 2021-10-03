@@ -61,9 +61,8 @@ body {
 }
 
 #log .message,#log .meta {
-	vertical-align: top;
-	display: table-cell;
-	padding-bottom: 0.1em;
+	position: relative;
+	z-index: 2;
 }
 
 #log .meta {
@@ -104,6 +103,7 @@ body {
 	padding: 10px;
 	display: block;
 	border-radius: 4px;
+	position: relative;
 }
 
 #log > div.nonsub {
@@ -111,5 +111,20 @@ body {
 }
 
 #log > div.owner {
-	background: blue;
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+	background-size: cover;
+	background-position: center;
+}
+
+
+#log > div.owner::before {
+	content: '';
+	background: #000;
+	opacity: 0.4;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }

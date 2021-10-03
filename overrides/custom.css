@@ -125,13 +125,9 @@ body {
 }
 
 #log > div.sub {
-	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/dumbells.jpg");
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/db2.jpg");
 	background-size: cover;
 	background-position: center;
-}
-
-#log > div.sub::before {
-	opacity: 0.4;
 }
 
 #log > div.vip {

@@ -1,4 +1,9 @@
 (function(){
+
+	if(!window.idToClassMap){
+		window.idToClassMap = {};
+	}
+
 	var getBadgesString = detail => detail.badges || '';
 
 	var classFromObjMap = {
@@ -39,6 +44,9 @@
 			}
 			var id = detail.tags.id;
 			var classes = Object.keys(classFromObjMap).filter(function(className) { return classFromObjMap[className](detail)}).join(' ');
+			if(idToClassMap[id]){
+				classes = classes + ' ' + idToClassMap[id];
+			}
 			var messagesByUser = document.querySelectorAll('[data-id="'+id+'"]');
 			if(!messagesByUser){
 				return;
@@ -48,11 +56,13 @@
 					return;
 				}
 
-				var color = message.getAttribute('data-color');
+				var color = message.getAttribute('data-color')
+				messages.setAttribute('data-badges', getBadgesString(detail));
 
 				if(classes === ''){
 					message.className = message.className+ ' already-done';
-					message.style = 'background: '+color;
+					const backgroundImage = message.querySelector('.background-image');
+					backgroundImage.style = 'background: '+color;
 					return;
 				}
 				message.className = 'already-done '+classes;

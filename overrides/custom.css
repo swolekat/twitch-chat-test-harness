@@ -110,13 +110,20 @@ body {
 
 #log > div.nonsub {
 	color: #fff !important;
-	background: rgba(100, 100, 100, 40);
+	background: transparent;
+}
+
+#log > div.owner .background-image {
+	background: rgba(100, 100, 100, 255);
+	opacity: 0.7;
 }
 
 #log > div.owner .background-image,
 #log > div.sub .background-image,
 #log > div.vip .background-image,
-#log > div.founder .background-image {
+#log > div.founder .background-image,
+#log > div.mod .background-image,
+#log > div.glodeelocks .background-image {
 	display: block;
 	opacity: 0.7;
 	position: absolute;
@@ -154,6 +161,13 @@ body {
 
 #log > div.owner .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+	background-size: cover;
+	background-position: center;
+}
+
+
+#log > div.glodeelocks .background-image {
+	background: url("https://cdn.discordapp.com/attachments/886759904583495700/894453131621048320/image0.jpg");
 	background-size: cover;
 	background-position: center;
 }

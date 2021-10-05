@@ -4,7 +4,9 @@
 		window.idToClassMap = {};
 	}
 
-	var getBadgesString = detail => detail.badges || '';
+	var getBadgesString = function(detail) {
+		return detail.tags.badges || '';
+	};
 
 	var classFromObjMap = {
 		'mod': function(detail) {
@@ -14,10 +16,10 @@
 			return !!detail.subscriber && detail.subscriber !== '0';
 		},
 		'vip': function(detail) {
-			return getBadgesString(detail).indexOf('vip/1') !== -1;
+			return getBadgesString(detail).indexOf('vip/') !== -1;
 		},
 		'founder': function(detail) {
-			return getBadgesString(detail).indexOf('found/0') !== -1;
+			return getBadgesString(detail).indexOf('founder/') !== -1;
 		},
 		'prime': function(detail)  {
 			return getBadgesString(detail).indexOf('premium') !== -1;
@@ -43,9 +45,11 @@
 				return;
 			}
 			var id = detail.tags.id;
+			var userId = detail.tags['user-id'];
+			console.log(JSON.stringify(detail.tags));
 			var classes = Object.keys(classFromObjMap).filter(function(className) { return classFromObjMap[className](detail)}).join(' ');
-			if(idToClassMap[id]){
-				classes = classes + ' ' + idToClassMap[id];
+			if(idToClassMap[userId]){
+				classes = classes + ' ' + idToClassMap[userId];
 			}
 			var messagesByUser = document.querySelectorAll('[data-id="'+id+'"]');
 			if(!messagesByUser){
@@ -57,7 +61,7 @@
 				}
 
 				var color = message.getAttribute('data-color')
-				messages.setAttribute('data-badges', getBadgesString(detail));
+				message.setAttribute('data-badges', getBadgesString(detail));
 
 				if(classes === ''){
 					message.className = message.className+ ' already-done';

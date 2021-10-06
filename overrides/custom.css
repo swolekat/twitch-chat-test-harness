@@ -105,7 +105,16 @@ body {
 }
 
 #log > div .background-image {
-	display: none;
+	background: rgba(100, 100, 100, 255);
+	display: block;
+	opacity: 0.8;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: none;
 }
 
 #log > div.nonsub {
@@ -114,7 +123,6 @@ body {
 }
 
 #log > div.owner .background-image {
-	background: rgba(100, 100, 100, 255);
 	opacity: 0.7;
 }
 
@@ -124,14 +132,7 @@ body {
 #log > div.founder .background-image,
 #log > div.mod .background-image,
 #log > div.glodeelocks .background-image {
-	display: block;
 	opacity: 0.7;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
 }
 
 
@@ -165,6 +166,11 @@ body {
 	background-position: center;
 }
 
+#log > div.prime .background-image {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+	background-size: cover;
+	background-position: center;
+}
 
 #log > div.glodeelocks .background-image {
 	background: url("https://cdn.discordapp.com/attachments/886759904583495700/894453131621048320/image0.jpg");

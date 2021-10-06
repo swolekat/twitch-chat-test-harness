@@ -10,7 +10,7 @@
 
 	var classFromObjMap = {
 		'mod': function(detail) {
-			return !!detail.mod && detail.mod !== '0';
+			return getBadgesString(detail).indexOf('moderator/1') !== -1;
 		},
 		'sub': function(detail) {
 			return !!detail.subscriber && detail.subscriber !== '0';
@@ -41,7 +41,7 @@
 		// by setting the timeout to 0 we should be able to guarantee the message has been rendered
 		setTimeout(() => {
 			var detail = obj.detail;
-			if(!detail){
+			if(!detail || !detail.tags){
 				return;
 			}
 			var id = detail.tags.id;
@@ -66,7 +66,7 @@
 				if(classes === ''){
 					message.className = message.className+ ' already-done';
 					const backgroundImage = message.querySelector('.background-image');
-					backgroundImage.style = 'background: '+color;
+					backgroundImage.style.background = color;
 					return;
 				}
 				message.className = 'already-done '+classes;

@@ -135,6 +135,11 @@ body {
 	opacity: 0.7;
 }
 
+#log > div.prime .background-image {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jeff bezos.gif");
+	background-size: cover;
+	background-position: center;
+}
 
 #log > div.sub .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/dumbells.jpg");
@@ -161,12 +166,6 @@ body {
 }
 
 #log > div.owner .background-image {
-	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
-	background-size: cover;
-	background-position: center;
-}
-
-#log > div.prime .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
 	background-size: cover;
 	background-position: center;

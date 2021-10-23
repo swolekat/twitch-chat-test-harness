@@ -179,6 +179,5 @@ body {
 
 #log > div.mindless-seal .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/seal-pattern.jpg");
-	background-size: cover;
-	background-position: center;
+	background-repeat: repeat;
 }

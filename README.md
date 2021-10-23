@@ -18,3 +18,5 @@ inside of `onEventRecieveHandler` you get an object containing the message. Some
     * `vip/1` means they are a vip
     * `found/0` means they are a founder
     * `premium/1` is a prime
+
+You need to get a user's twitch id for custom chat. You can use https://www.streamweasels.com/support/convert-twitch-username-to-user-id/ to get it.

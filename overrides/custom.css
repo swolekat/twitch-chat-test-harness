@@ -176,3 +176,9 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+
+#log > div.mindless-seal .background-image {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/spinning-seal.gif");
+	background-size: cover;
+	background-position: center;
+}

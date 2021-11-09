@@ -174,7 +174,6 @@ body {
 
 #log > div.bot .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/robot-background.jpg");
-	background-size: cover;
 	background-position: center;
 }
 

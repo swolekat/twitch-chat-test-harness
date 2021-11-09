@@ -1,8 +1,13 @@
 (function(){
-
 	if(!window.idToClassMap){
 		window.idToClassMap = {};
 	}
+
+	var botIds = [
+		541450924, //creatisbot
+		1564983,   //moobot
+		120560983, //warpworldbot
+	];
 
 	var getBadgesString = function(detail) {
 		return detail.tags.badges || '';
@@ -26,6 +31,9 @@
 		},
 		'owner': function(detail) {
 			return detail.owner;
+		},
+		'bot': function(detail) {
+			return botIds.indexOf(Number.parseInt(detail.tags['user-id'], 10)) !== -1;
 		},
 	};
 

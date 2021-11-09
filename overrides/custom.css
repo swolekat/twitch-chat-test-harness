@@ -130,6 +130,7 @@ body {
 #log > div.sub .background-image,
 #log > div.vip .background-image,
 #log > div.founder .background-image,
+#log > div.bot .background-image,
 #log > div.mod .background-image,
 #log > div.glodeelocks .background-image {
 	opacity: 0.7;
@@ -167,6 +168,12 @@ body {
 
 #log > div.owner .background-image {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+	background-size: cover;
+	background-position: center;
+}
+
+#log > div.bot .background-image {
+	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/robot-background.jpg");
 	background-size: cover;
 	background-position: center;
 }

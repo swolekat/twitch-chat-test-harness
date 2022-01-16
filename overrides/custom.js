@@ -7,6 +7,7 @@
 		541450924, //creatisbot
 		1564983,   //moobot
 		120560983, //warpworldbot
+		100135110, //streamelements
 	];
 
 	var getBadgesString = function(detail) {

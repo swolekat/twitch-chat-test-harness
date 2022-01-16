@@ -132,7 +132,8 @@ body {
 #log > div.founder .background-image,
 #log > div.bot .background-image,
 #log > div.mod .background-image,
-#log > div.glodeelocks .background-image {
+#log > div.glodeelocks .background-image,
+#log > div.colon-threee .background-image {
 	opacity: 0.7;
 }
 
@@ -187,3 +188,20 @@ body {
 	background: url("https://swolekat.github.io/twitch-chat-test-harness/images/seal-pattern.jpg");
 	background-repeat: repeat;
 }
+
+#log > div.colon-threee .background-image {
+	background: url("https://i.imgur.com/DmiIHdl.gif");
+	background-size: cover;
+	background-position: center;
+}
+
+#log > div.toxic-twinky .message {
+	color: #000 !important;
+}
+
+#log > div.toxic-twinky .background-image {
+	background: url("https://www.clipartkey.com/mpngs/m/315-3151731_green-biohazard-symbol-png.png");
+	background-size: cover;
+	background-position: center;
+}
+

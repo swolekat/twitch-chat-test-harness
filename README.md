@@ -1,9 +1,11 @@
-# twitch-chat-test-harness
-Test harness for testing twitch skins
+This is more for me just customizing chat. While initially I started with streamlabs, I have since switched to stream elements.
 
-This is for the streamlabs obs widget.
+## Streamlabs instructions
+In the chat widget, plop in the html, css, and js in the appropriate places.
 
-## Notes
+I won't be updating this one anymore so if they change their api, you'll have to do your own digging.
+
+### Notes
 
 You can do special things for a user if you use the `data-from="user_nameHere"`
 
@@ -20,3 +22,23 @@ inside of `onEventRecieveHandler` you get an object containing the message. Some
     * `premium/1` is a prime
 
 You need to get a user's twitch id for custom chat. You can use https://www.streamweasels.com/support/convert-twitch-username-to-user-id/ to get it.
+
+
+## Stream elements instructions
+First get the twitch bubbles overlay https://www.youtube.com/watch?v=RbG10UmKaqM
+
+My code is based off of https://github.com/zaytri/stream-elements-widgets/tree/main/DynamicChatBubbles but adds classes and some css.
+
+Just copy over the css and js into the editor. If you want stuff for users you'll need something like this: 
+```
+window.idToClassMap = {
+	'00000000': 'class-goes-here',
+};
+```
+
+
+
+
+
+
+

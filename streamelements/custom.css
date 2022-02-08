@@ -1,0 +1,592 @@
+/* --- [Globals] --- */
+
+* {
+    font-family: '{customFont}', '{googleFont}', Nunito, Arial, sans-serif;
+font-size: {fontSize}px;
+font-weight: {fontWeight};
+overflow-wrap: break-word;
+margin: 0;
+padding: 0;
+}
+
+/* --- [Widget Container] --- */
+
+main {
+    --customBorderColor: {borderColor};
+    --customNameColor: {nameColor};
+    --customBackgroundColor: {backgroundColor};
+    --customTextColor: {textColor};
+    color: #444;
+    box-sizing: border-box;
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    left: 0;
+}
+
+/* darker than the actual color in animal crossing */
+/* just so that it's easier to read since it's smaller */
+main.theme-animal-crossing {
+    color: #564A39;
+}
+
+main.preview-true::before {
+    --borderSize: 10px;
+    content: '';
+    position: absolute;
+height: calc(100% - {padding}px * 2);
+width: calc(100% - {padding}px * 2);
+bottom: calc({padding}px - var(--borderSize));
+left: calc({padding}px - var(--borderSize));
+border: var(--borderSize) dashed white;
+box-shadow: 0 0 5px #000;
+background-color: #0008;
+z-index: -20;
+}
+
+main.preview-true::after {
+    --borderSize: 10px;
+    --space: 10px;
+    content: 'Welcome to Chat Bubbles!\a\a Preview Mode is On!\a Set [Preview > Preview Mode] to Off to hide this.\a\a Whenever you update the settings, a few test message bubbles will appear!\a Messages will only appear within the dotted area.\a\a Drag and resize this box to change the area.\a [Bubble Styles > Space from Widget Edges] also affects this area.\a\aLooking for the Animal Crossing theme? [Bubble Styles > Pre-built Themes > Animal Crossing]\a Want the bubbles in a List instead of Random? [Bubble Styles > Position Mode > List]\a\a To add this to your streaming software (such as OBS):\a - On the top right, click Save\a - Click on 🔗 to copy the overlay URL\a - Create a new Browser Source in your streaming software and paste the URL\a - Set the Width to 1920 and Height to 1080';
+    white-space: pre-wrap;
+    color: white;
+    font-size: 24px;
+    position: absolute;
+top: {padding}px;
+left: {padding}px;
+right: {padding}px;
+text-align: left;
+padding: 30px;
+text-shadow: 0 0 5px black, 0 0 3px black, 0 0 1px black;
+font-weight: bold;
+font-family: Roboto, Arial, sans-serif;
+background-color: #000B;
+z-index: -10;
+}
+
+main.preview-true::before, main.preview-true::after {
+    animation: fade .4s reverse forwards;
+}
+
+main.dark-mode { color: white; }
+main.dark-mode.theme-animal-crossing { color: #DEFEFE; }
+
+main.custom-message-colors { color: var(--customTextColor) }
+
+main.list-mode {
+    display: flex;
+align-items: {listAlignment};
+align-content: start;
+overflow: visible;
+padding: {padding}px;
+}
+
+main.direction-bottom {
+    flex-direction: column-reverse;
+    bottom: 0;
+}
+
+main.direction-top {
+    flex-direction: column;
+}
+
+main.direction-top main.random-mode {
+    top: 0;
+}
+
+/* --- [Bubble Container] --- */
+
+.bubble {
+    --defaultBackgroundColor: #FFFC;
+    --backgroundColor: var(--defaultBackgroundColor);
+    --cornerSize: 23px;
+    --userColor: #FF4A80;
+    --borderColor: var(--userColor);
+    --borderSize: 5px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.random-mode .bubble {
+    top: 30px;
+    left: 30px;
+}
+
+.list-mode.direction-top .bubble {
+    margin-bottom: 15px;
+}
+
+.list-mode.direction-bottom .bubble {
+    margin-top: 15px;
+}
+
+.theme-default.corner-diagonal .bubble {
+    --topRightCorner: calc(var(--cornerSize) - var(--borderSize));
+    --bottomLeftCorner: calc(var(--cornerSize) / 2);
+    --bottomRightCorner: calc(var(--cornerSize) / 2);
+
+    -webkit-mask:
+            linear-gradient( 135deg, transparent 0 var(--topLeftCorner, 0),     white 0) top left,
+            linear-gradient(-135deg, transparent 0 var(--topRightCorner, 0),    white 0) top right,
+            linear-gradient(  45deg, transparent 0 var(--bottomLeftCorner, 0),  white 0) bottom left,
+            linear-gradient( -45deg, transparent 0 var(--bottomRightCorner, 0), white 0) bottom right
+;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    padding: var(--borderSize);
+    overflow: hidden;
+}
+
+.theme-default.corner-round .bubble, .theme-default.corner-square .bubble {
+    border: var(--borderSize) solid var(--borderColor);
+}
+
+.theme-default.corner-round .bubble {
+    border-radius: 10px;
+}
+
+.custom-border-colors .bubble {
+    --borderColor: var(--customBorderColor);
+}
+
+.custom-message-colors .bubble {
+    --backgroundColor: var(--customBackgroundColor);
+}
+
+.bubble.animate {
+    visibility: visible;
+}
+
+.bubble.dynamic {
+animation: pop .5s calc({lifetime}s - .5s) forwards;
+}
+
+.lifetime-0 .bubble.dynamic {
+    animation: fade reverse 0s 1s;
+}
+
+.bubble.fade {
+animation:
+fade reverse .5s,
+               fade .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.fade {
+    animation:
+            fade reverse .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble.fade-up {
+animation:
+fade reverse .5s,
+               fade .5s calc({lifetime}s - .5s) forwards,
+                                                up .5s,
+                                                     up reverse .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.fade-up {
+    animation:
+            fade reverse .5s,
+            up .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble.fade-down {
+animation:
+fade reverse .5s,
+               fade .5s calc({lifetime}s - .5s) forwards,
+                                                down .5s,
+                                                       down reverse .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.fade-down {
+    animation:
+            fade reverse .5s,
+            down .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble.fade-left {
+animation:
+fade reverse .5s,
+               fade .5s calc({lifetime}s - .5s) forwards,
+                                                left .5s,
+                                                       left reverse .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.fade-left {
+    animation:
+            fade reverse .5s,
+            left .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble.fade-right {
+animation:
+fade reverse .5s,
+               fade .5s calc({lifetime}s - .5s) forwards,
+                                                right .5s,
+                                                        right reverse .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.fade-right {
+    animation:
+            fade reverse .5s,
+            right .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble.zoom {
+animation:
+pop reverse .5s,
+              pop .5s calc({lifetime}s - .5s) forwards
+;
+}
+
+.lifetime-0 .bubble.zoom {
+    animation:
+            pop reverse .5s,
+            fade reverse 0s 1s
+;
+}
+
+.bubble-background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--backgroundColor);
+}
+
+.theme-default.corner-diagonal .bubble-background {
+    background:
+            linear-gradient( 0deg,   var(--borderColor) calc(var(--borderSize) + 1px), transparent 0),
+            linear-gradient( 90deg,  var(--borderColor) calc(var(--borderSize) + 1px), transparent 0),
+            linear-gradient( 180deg, var(--borderColor) calc(var(--borderSize) + 1px), transparent 0),
+            linear-gradient( 270deg, var(--borderColor) calc(var(--borderSize) + 1px), transparent 0),
+            linear-gradient( 135deg, var(--borderColor) 0 calc(var(--topLeftCorner, 0px) + var(--borderSize)),     transparent 0) top left     / 50% 50%,
+            linear-gradient(-135deg, var(--borderColor) 0 calc(var(--topRightCorner, 0px) + var(--borderSize)),    transparent 0) top right    / 50% 50%,
+            linear-gradient(  45deg, var(--borderColor) 0 calc(var(--bottomLeftCorner, 0px) + var(--borderSize)),  transparent 0) bottom left  / 50% 50%,
+            linear-gradient( -45deg, var(--borderColor) 0 calc(var(--bottomRightCorner, 0px) + var(--borderSize)), transparent 0) bottom right / 50% 50%,
+            var(--backgroundColor)
+;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+}
+
+.theme-default.corner-round .bubble-background {
+    border-radius: 5px;
+}
+
+.dark-mode .bubble { --defaultBackgroundColor: #000D; }
+
+/* --- [Container Blocks] --- */
+
+.username-box {
+    z-index: 1;
+    background-color: var(--borderColor);
+    box-shadow: 0 -1px 0 1px var(--borderColor);
+    padding: .2rem 0;
+}
+
+.theme-animal-crossing .username-box {
+    border-radius: 30px;
+    display: inline-block;
+    padding: .2rem .5rem;
+}
+
+.theme-animal-crossing.corner-square .username-box {
+    border-radius: 0;
+}
+
+.username {
+    padding-left: .3rem;
+    padding-right: .3rem;
+    display: inline-block;
+    color: black;
+}
+
+.user-color-dark .username {
+    color: #FFFC;
+}
+
+.custom-border-colors .username {
+    color: var(--customNameColor);
+}
+
+.message {
+    --dynamicWidth: {maxWidth}px;
+    padding: .6rem;
+    width: var(--dynamicWidth);
+max-height: {maxHeight}px;
+overflow: hidden;
+}
+
+.theme-animal-crossing .message {
+    --backgroundColor: #FFFAE4DD;
+    background-color: var(--backgroundColor);
+    border-radius: 30px / 25px;
+    padding: 1.75rem .75rem .75rem .75rem;
+    margin-top: -1rem;
+    margin-left: 15px;
+}
+
+.theme-animal-crossing.corner-square .message {
+    border-radius: 0;
+}
+
+.fixed-width-false .emote-4 .message {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.dark-mode.theme-animal-crossing .message {
+    --backgroundColor: #1B3852DD;
+}
+
+.theme-animal-crossing.custom-message-colors .message {
+    --backgroundColor: var(--customBackgroundColor);
+}
+
+.dynamic .message { animation: expand 2s; }
+
+/* --- [Message Parts] --- */
+
+.emote {
+    position: relative;
+    vertical-align: middle;
+    margin: -.25rem 0;
+}
+
+.dynamic .text, .dynamic .emote { animation: fadeMessage 1.5s; }
+
+.emote-1 .emote { height: 1.75rem; max-height: 112px; }
+.emote-2 .emote { height: 3.5rem; max-height: 112px; }
+.emote-4 .emote { height: 112px; }
+
+/* --- [Message Types] --- */
+
+.highlight .bubble-background, .theme-animal-crossing .highlight .message {
+    background: linear-gradient(-45deg, #FFADADDD, #FFD6A5DD, #FDFFB6DD, #CAFFBFDD, #9BF6FFDD, #A0C4FFDD, #BDB2FFDD, #FFC6FFDD, #FFADADDD, #FFD6A5DD) 100% 100% / 900% 900%;
+}
+
+.highlight .bubble-background {
+    animation: gradientShift 5s infinite linear;
+}
+
+.theme-animal-crossing .dynamic.highlight .message {
+    animation: gradientShift 5s infinite linear, expand 2s;
+}
+
+.theme-default.corner-diagonal .highlight .bubble-background {
+    background:
+            linear-gradient( 0deg,   var(--borderColor) calc(var(--borderSize) + .1px), transparent 0),
+            linear-gradient( 90deg,  var(--borderColor) calc(var(--borderSize) + .1px), transparent 0),
+            linear-gradient( 180deg, var(--borderColor) calc(var(--borderSize) + .1px), transparent 0),
+            linear-gradient( 270deg, var(--borderColor) calc(var(--borderSize) + .1px), transparent 0),
+            linear-gradient( 135deg, var(--borderColor) 0 calc(var(--topLeftCorner, 0px) + var(--borderSize)),     transparent 0) top left     / 50% 50%,
+            linear-gradient(-135deg, var(--borderColor) 0 calc(var(--topRightCorner, 0px) + var(--borderSize)),    transparent 0) top right    / 50% 50%,
+            linear-gradient(  45deg, var(--borderColor) 0 calc(var(--bottomLeftCorner, 0px) + var(--borderSize)),  transparent 0) bottom left  / 50% 50%,
+            linear-gradient( -45deg, var(--borderColor) 0 calc(var(--bottomRightCorner, 0px) + var(--borderSize)), transparent 0) bottom right / 50% 50%,
+            linear-gradient(-45deg, #FFADADDD, #FFD6A5DD, #FDFFB6DD, #CAFFBFDD, #9BF6FFDD, #A0C4FFDD, #BDB2FFDD, #FFC6FFDD, #FFADADDD, #FFD6A5DD) 100% 100% / 900% 900%
+;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    animation: gradientShift-cornerDiagonal 5s infinite linear;
+}
+
+.highlight .text {
+    color: #000B;
+}
+
+.action .text {
+    font-style: italic;
+}
+
+.action .emote {
+    transform: skew(-5deg);
+}
+
+.badge {
+    height: 1.5rem;
+    padding-bottom: .25rem;
+    padding-right: .25rem;
+    position: relative;
+    vertical-align: middle;
+}
+
+.pronouns-badge {
+    display: inline-block;
+    margin-right: .25rem;
+    border-radius: 5px;
+    border: 2px solid currentcolor;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    margin-bottom: .25rem;
+}
+
+.custom-pronouns-badge-colors .pronouns-badge {
+color: {pronounsBadgeTextColor};
+background-color: {pronounsBadgeBackgroundColor};
+border-color: {pronounsBadgeBorderColor};
+}
+
+.theme-animal-crossing .badge {
+    padding-bottom: .15rem;
+}
+
+/* --- [Animations] --- */
+
+@keyframes gradientShift-cornerDiagonal {
+    from { background-position: 0 0, 0 0, 0 0, 0 0, top left, top right, bottom left, bottom right, 100% 100%; }
+    to { background-position: 0 0, 0 0, 0 0, 0 0, top left, top right, bottom left, bottom right, 0 0; }
+}
+
+@keyframes gradientShift {
+    from { background-position: 100% 100%; }
+    to { background-position: 0 0; }
+}
+
+@keyframes pop {
+    20% { transform: scale(1.3); }
+    to { opacity: 0; transform: scale(0); }
+}
+
+@keyframes fadeMessage {
+    0%, 30% { opacity: 0; }
+}
+
+@keyframes fade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes up {
+    from { transform: translateY(50px); }
+    to { transform: translateY(0px); }
+}
+
+@keyframes down {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0px); }
+}
+
+@keyframes left {
+    from { transform: translateX(50px); }
+    to { transform: translateX(0px); }
+}
+
+@keyframes right {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(0px); }
+}
+
+@keyframes expand {
+    0% {
+        width: 0;
+        max-height: 0;
+    }
+
+    10% { width: calc(var(--dynamicWidth) * 1.75); }
+
+    30% {
+        width: var(--dynamicWidth);
+        max-height: 0;
+    }
+    70% { max-height: {maxHeight}px; }
+}
+
+
+/* new custom stuff here! */
+.prime .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jeff bezos.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+.prime .message span {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sub .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/dumbells.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.vip .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.founder .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.mod .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
+    background-size: cover;
+    background-position: center;
+    color: #48c558 !important;
+}
+
+.owner .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+    background-size: cover;
+    background-position: center;
+    color: #FF4A80 !important;
+}
+
+.glodeelocks .message {
+    background: url("https://cdn.discordapp.com/attachments/886759904583495700/894453131621048320/image0.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.mindless-seal .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/seal-pattern.jpg");
+    background-repeat: repeat;
+}
+
+.mindless-seal .message span {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.colon-threee .message {
+    background: url("https://i.imgur.com/DmiIHdl.gif");
+    background-size: cover;
+    background-position: center;
+    color: #FF4A80 !important;
+}
+
+.colon-threee .message span {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.toxic-twinky .message {
+    background: url("https://www.clipartkey.com/mpngs/m/315-3151731_green-biohazard-symbol-png.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}

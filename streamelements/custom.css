@@ -518,8 +518,20 @@ border-color: {pronounsBadgeBorderColor};
     background-position: center;
 }
 
-.prime .message span {
+.prime .message span,
+.mindless-seal .message span,
+.colon-threee .message span {
     background: rgba(255, 255, 255, 0.5);
+}
+
+.sub .message span,
+.vip .message span,
+.founder .message span,
+.mod .message span,
+.owner .message span,
+.glodeelocks .message span,
+.toxic-twinky .message span {
+    background: rgba(255, 255, 255, 0);
 }
 
 .sub .message {
@@ -569,19 +581,11 @@ border-color: {pronounsBadgeBorderColor};
     background-repeat: repeat;
 }
 
-.mindless-seal .message span {
-    background: rgba(255, 255, 255, 0.5);
-}
-
 .colon-threee .message {
     background: url("https://i.imgur.com/DmiIHdl.gif");
     background-size: cover;
     background-position: center;
     color: #FF4A80 !important;
-}
-
-.colon-threee .message span {
-    background: rgba(255, 255, 255, 0.5);
 }
 
 .toxic-twinky .message {

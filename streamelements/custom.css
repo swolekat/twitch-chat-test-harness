@@ -520,6 +520,7 @@ border-color: {pronounsBadgeBorderColor};
 
 .prime .message span,
 .mindless-seal .message span,
+.mod .message span,
 .colon-threee .message span {
     background: rgba(255, 255, 255, 0.5);
 }
@@ -527,7 +528,6 @@ border-color: {pronounsBadgeBorderColor};
 .sub .message span,
 .vip .message span,
 .founder .message span,
-.mod .message span,
 .owner .message span,
 .glodeelocks .message span,
 .toxic-twinky .message span {

@@ -25,7 +25,6 @@ const classFromObjMap = {
 
 // custom. this is used in the BubbleComponent function
 function getBubbleClass(userId, badges) {
-    console.log(badges);
     if(window.idToClassMap && idToClassMap[userId]){
         return window.idToClassMap[userId];
     }

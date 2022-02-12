@@ -518,20 +518,16 @@ border-color: {pronounsBadgeBorderColor};
     background-position: center;
 }
 
+.message span {
+    position: relative;
+}
+
 .prime .message span,
 .mindless-seal .message span,
 .mod .message span,
-.colon-threee .message span {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.sub .message span,
-.vip .message span,
-.founder .message span,
 .owner .message span,
-.glodeelocks .message span,
-.toxic-twinky .message span {
-    background: rgba(255, 255, 255, 0);
+.colon-threee .message span {
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .sub .message {
@@ -559,14 +555,14 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
     background-size: cover;
     background-position: center;
-    color: #48c558 !important;
+    color: #1f5923 !important;
 }
 
 .owner .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
     background-size: cover;
     background-position: center;
-    color: #FF4A80 !important;
+    color: #bb0101 !important;
 }
 
 .glodeelocks .message {
@@ -582,7 +578,7 @@ border-color: {pronounsBadgeBorderColor};
 }
 
 .colon-threee .message {
-    background: url("https://i.imgur.com/DmiIHdl.gif");
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/falcoDrill.gif");
     background-size: cover;
     background-position: center;
     color: #FF4A80 !important;

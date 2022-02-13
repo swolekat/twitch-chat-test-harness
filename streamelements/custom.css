@@ -522,12 +522,13 @@ border-color: {pronounsBadgeBorderColor};
     position: relative;
 }
 
-.prime .message span,
-.mindless-seal .message span,
-.mod .message span,
-.owner .message span,
-.colon-threee .message span {
+.prime .message > span,
+.mindless-seal .message > span,
+.mod .message > span,
+.owner .message > span,
+.colon-threee .message > span {
     background: rgba(255, 255, 255, 0.6);
+    padding: 0 5px;
 }
 
 .sub .message {

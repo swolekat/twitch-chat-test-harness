@@ -526,6 +526,7 @@ border-color: {pronounsBadgeBorderColor};
 .mindless-seal .message > span,
 .mod .message > span,
 .owner .message > span,
+.founder .message > span,
 .colon-threee .message > span {
     background: rgba(255, 255, 255, 0.6);
     padding: 0 5px;
@@ -536,6 +537,12 @@ border-color: {pronounsBadgeBorderColor};
     background-size: cover;
     background-position: center;
     color: #fff !important;
+}
+
+.vip .message > span,
+.sub .message > span {
+    background: transparent;
+    padding: 0;
 }
 
 .vip .message {
@@ -549,7 +556,6 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
     background-size: cover;
     background-position: center;
-    color: #fff !important;
 }
 
 .mod .message {

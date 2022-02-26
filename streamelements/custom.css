@@ -565,14 +565,21 @@ border-color: {pronounsBadgeBorderColor};
     padding: 0.75rem 0.75rem 0.75rem 0.75rem;
 }
 
-.prime .message > span,
-.mindless-seal .message > span,
-.mod .message > span,
-.owner .message > span,
-.founder .message > span,
-.colon-threee .message > span {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 0 5px;
+.message {
+    min-width: 150px;
+}
+
+.action .emote {
+    transform: none;
+}
+
+.emote-2 .text,
+.emote-4 .text {
+    display: none;
+}
+
+.emote-2 .message-wrapper {
+    line-height: 63px;
 }
 
 .sub .message {
@@ -582,10 +589,79 @@ border-color: {pronounsBadgeBorderColor};
     color: #fff !important;
 }
 
+.prime .message > span {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0 5px;
+}
+
 .vip .message > span,
 .sub .message > span {
     background: transparent;
     padding: 0;
+}
+
+.mindless-seal .message > span,
+.mod .message > span,
+.founder .message > span,
+.colon-threee .message > span,
+.owner .message > span {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0 5px;
+}
+
+.prime.emote-2 .message > span,
+.prime.emote-4 .message > span,
+.vip.emote-2 .message > span,
+.vip.emote-4 .message > span,
+.sub.emote-2 .message > span,
+.sub.emote-4 .message > span,
+.mindless-seal.emote-2 .message > span,
+.mindless-seal.emote-4 .message > span,
+.mod.emote-2 .message > span,
+.mod.emote-4 .message > span,
+.founder.emote-2 .message > span,
+.founder.emote-4 .message > span,
+.colon-threee.emote-2 .message > span,
+.colon-threee.emote-4 .message > span,
+.owner.emote-2 .message > span,
+.owner.emote-4 .message > span
+{
+    background: transparent;
+    padding: 0;
+}
+
+.prime.emote-2 .emote,
+.prime.emote-4 .emote {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.vip.emote-2 .emote,
+.vip.emote-4 .emote,
+.sub.emote-2 .emote,
+.sub.emote-4 .emote {
+    background: transparent;
+}
+
+.mindless-seal.emote-2 .emote,
+.mindless-seal.emote-4 .emote,
+.mod.emote-2 .emote,
+.mod.emote-4 .emote,
+.founder.emote-2 .emote,
+.founder.emote-4 .emote,
+.colon-threee.emote-2 .emote,
+.colon-threee.emote-4 .emote,
+.owner.emote-2 .emote,
+.owner.emote-4 .emote {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.mindless-seal .message > span,
+.mod .message > span,
+.founder .message > span,
+.colon-threee .message > span,
+.owner .message > span {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0 5px;
 }
 
 .vip .message {
@@ -605,7 +681,7 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
     background-size: cover;
     background-position: center;
-    color: #458647 !important;
+    color: #057206 !important;
 }
 
 .owner .message {

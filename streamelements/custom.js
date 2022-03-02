@@ -37,6 +37,12 @@ function getBubbleClass(userId, badges) {
         return `${sum} ${key}`
     }, '').trim();
 }
+
+function getAllCapsText(parsedText){
+    const textContent = parsedText.filter(item => item.type === 'text');
+    const isAllCaps = textContent.every(item => !item.data || item.data === item.data.toUpperCase());
+    return isAllCaps ? 'all-caps' : '';
+}
 // CUSTOM SWOLEKAT CODE ENDS HERE
 
 
@@ -527,7 +533,7 @@ function BubbleComponent(props) {
         }
     })
 
-    let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges)]
+    let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges), getAllCapsText(parsedText)]
 
     switch (messageType) {
         case 'highlight': {

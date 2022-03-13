@@ -43,6 +43,18 @@ function getAllCapsText(parsedText){
     const isAllCaps = textContent.every(item => !item.data || item.data === item.data.toUpperCase());
     return isAllCaps ? 'all-caps' : '';
 }
+
+const ZERO_WIDTH_EMOTES = [
+    'SnowTime',
+    'RainTime',
+    'PETPET',
+    'SteerR',
+];
+
+function isEmoteZeroWidth(emoteText){
+    return ZERO_WIDTH_EMOTES.includes(emoteText);
+}
+
 // CUSTOM SWOLEKAT CODE ENDS HERE
 
 
@@ -525,13 +537,26 @@ function BubbleComponent(props) {
     // based on https://stackoverflow.com/a/69869976
     const isDark = tColor.getLuminance() < 0.4
 
-    const parsedElements = parsedText.map(({ type, data }) => {
-        switch(type) {
-            case 'emote': return EmoteComponent(data)
-            case 'text':
-            default: return TextComponent(data)
-        }
+    const filteredElements = parsedText.filter(({ type, data }) => {
+        return type === 'emote' || (!!data && typeof data === 'string' && !!data.trim());
     })
+
+    const parsedElements = [];
+    filteredElements.forEach(({data, type}, index) => {
+        if(type !== 'emote'){
+            parsedElements.push(TextComponent(data));
+            return;
+        }
+        if(isEmoteZeroWidth(data.name)){
+            return;
+        }
+        const nextElement = index + 1 <= filteredElements.length - 1 ? filteredElements[index + 1] : undefined;
+        if(!nextElement || nextElement.type !== 'emote' || !isEmoteZeroWidth(nextElement.data.name)){
+            parsedElements.push(EmoteComponent(data));
+            return;
+        }
+        parsedElements.push(ComplexEmoteComponent(data, nextElement.data));
+    });
 
     let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges), getAllCapsText(parsedText)]
 
@@ -594,7 +619,17 @@ function TextComponent(text) {
 }
 
 function EmoteComponent({ urls: { '4': url }, name }) {
-    return Component('img', { class: ['emote'], src: url, alt: name })
+    return Component('img', { class: ['emote', isEmoteZeroWidth(name) ? 'zero-width' : ''], src: url, alt: name })
+}
+
+function ComplexEmoteComponent(originalEmote, zeroWidthEmote) {
+    return Component('div', {
+        class: ['complex-emote'],
+        children: [
+            EmoteComponent(originalEmote),
+            EmoteComponent(zeroWidthEmote),
+        ]
+    });
 }
 
 const ClassComponent = (tag, className) => (children, props = {}) => Component(tag, { children, class: className, ...props })
@@ -757,7 +792,9 @@ function calcEmoteSize(parsedText) {
     let emotesFound = 0
     for (const { type, data } of parsedText) {
         if (type === 'emote') {
-            emotesFound++
+            if(!isEmoteZeroWidth(data?.name)) {
+                emotesFound++
+            }
             if (emotesFound > 1) return 2
         } else if (data.trim() !== '') return 1
     }

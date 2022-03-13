@@ -512,6 +512,19 @@ border-color: {pronounsBadgeBorderColor};
 
 
 /* new custom stuff here! */
+
+.complex-emote {
+    display: inline-block;
+    position: relative;
+}
+
+.emote.zero-width {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent !important;
+}
+
 .prime .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jeff bezos.gif");
     background-size: cover;

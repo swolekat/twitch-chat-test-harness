@@ -633,7 +633,6 @@ border-color: {pronounsBadgeBorderColor};
     padding: 0;
 }
 
-.sportix .message > span,
 .mindless-seal .message > span,
 .mod .message > span,
 .founder .message > span,
@@ -649,8 +648,6 @@ border-color: {pronounsBadgeBorderColor};
 .vip.emote-4 .message > span,
 .sub.emote-2 .message > span,
 .sub.emote-4 .message > span,
-.sportix.emote-2 .message > span,
-.sportix.emote-4 .message > span,
 .mindless-seal.emote-2 .message > span,
 .mindless-seal.emote-4 .message > span,
 .mod.emote-2 .message > span,
@@ -678,8 +675,6 @@ border-color: {pronounsBadgeBorderColor};
     background: transparent;
 }
 
-.sportix.emote-2 .emote,
-.sportix.emote-4 .emote,
 .mindless-seal.emote-2 .emote,
 .mindless-seal.emote-4 .emote,
 .mod.emote-2 .emote,
@@ -693,7 +688,6 @@ border-color: {pronounsBadgeBorderColor};
     background: rgba(255, 255, 255, 0.6);
 }
 
-.sportix .message > span,
 .mindless-seal .message > span,
 .mod .message > span,
 .founder .message > span,
@@ -760,5 +754,5 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jasper-lake_trans.jpg");
     background-size: cover;
     background-position: center;
-    color: #807045 !important;
+    color: #2b2b2b !important;
 }

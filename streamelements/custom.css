@@ -749,3 +749,10 @@ border-color: {pronounsBadgeBorderColor};
     background-position: center;
     color: #000 !important;
 }
+
+.sportix .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jasper-lake.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #0c1e7e !important;
+}

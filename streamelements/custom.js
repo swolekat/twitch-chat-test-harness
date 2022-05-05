@@ -25,23 +25,37 @@ const classFromObjMap = {
 
 // custom. this is used in the BubbleComponent function
 function getBubbleClass(userId, badges) {
-if(window.idToClassMap && idToClassMap[userId]){
-    return window.idToClassMap[userId];
-}
-
-return Object.keys(classFromObjMap).reduce((sum, key) => {
-    const func = classFromObjMap[key];
-    if(!func(badges, userId)){
-        return sum;
+    if(window.idToClassMap && idToClassMap[userId]){
+        return window.idToClassMap[userId];
     }
-    return `${sum} ${key}`
-}, '').trim();
+
+    return Object.keys(classFromObjMap).reduce((sum, key) => {
+        const func = classFromObjMap[key];
+        if(!func(badges, userId)){
+            return sum;
+        }
+        return `${sum} ${key}`
+    }, '').trim();
 }
 
-function getAllCapsText(parsedText){
-const textContent = parsedText.filter(item => item.type === 'text');
-const isAllCaps = textContent.every(item => !item.data || item.data === item.data.toUpperCase());
-return isAllCaps ? 'all-caps' : '';
+const classFromTextMap = {
+    'all-caps': (textContent) => {
+        return textContent.every(item => !item.data || item.data === item.data.toUpperCase());
+    },
+    'bored': (textContent) => {
+        return textContent.some(item => item.data && item.data.indexOf('bored') !== -1);
+    },
+};
+
+function getTextClasses(parsedText) {
+    const textContent = parsedText.filter(item => item.type === 'text');
+    return Object.keys(classFromTextMap).reduce((sum, key) => {
+        const func = classFromTextMap[key];
+        if(!func(textContent)){
+            return sum;
+        }
+        return `${sum} ${key}`
+    }, '').trim();
 }
 
 const ZERO_WIDTH_EMOTES = [
@@ -599,7 +613,7 @@ filteredElements.forEach(({data, type}, index) => {
     parsedElements.push(ComplexEmoteComponent(data, children));
 });
 
-let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges), getAllCapsText(parsedText)]
+let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges), getTextClasses(parsedText)]
 
 switch (messageType) {
     case 'highlight': {

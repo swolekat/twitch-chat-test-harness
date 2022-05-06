@@ -756,3 +756,21 @@ border-color: {pronounsBadgeBorderColor};
     background-position: center;
     color: #2b2b2b !important;
 }
+
+/*bored needs to be at the very end*/
+.bored .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #000 !important;
+}
+
+.bored .message > span {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.bored.emote-2 .emote,
+.bored.emote-4 .emote {
+    background: transparent !important;
+}

@@ -757,6 +757,13 @@ border-color: {pronounsBadgeBorderColor};
     color: #2b2b2b !important;
 }
 
+.oserium .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/oserium.gif");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
 /*bored needs to be at the very end*/
 .bored .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

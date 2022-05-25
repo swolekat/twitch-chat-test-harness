@@ -764,6 +764,13 @@ border-color: {pronounsBadgeBorderColor};
     color: #000 !important;
 }
 
+.lone-wanderer .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/canada.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
 /*bored needs to be at the very end*/
 .bored .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

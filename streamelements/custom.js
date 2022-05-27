@@ -21,6 +21,12 @@ const classFromObjMap = {
 'owner': (badges) => {
     return badges.find(b => b.type === 'broadcaster');
 },
+'no-audio': (badges) => {
+    return badges.find(b => b.type === 'no_audio');
+},
+'no-video': (badges) => {
+    return badges.find(b => b.type === 'no_video');
+},
 };
 
 // custom. this is used in the BubbleComponent function
@@ -101,6 +107,19 @@ const ZERO_WIDTH_EMOTES = [
 function isEmoteZeroWidth(emoteText){
 return ZERO_WIDTH_EMOTES.includes(emoteText);
 }
+
+const isSpoiler = (parsedText) => {
+    const firstTextElement = parsedText.find(({type, data}) => type !== 'emote' && !!data && typeof data === 'string');
+    if(!firstTextElement){
+        return false;
+    }
+    const parsedData = firstTextElement.data.toLowerCase()
+    return parsedData.startsWith('spoiler');
+};
+
+const spoilerifyText = (text) => {
+    return text.replace(/\S/g, '█');
+};
 
 // CUSTOM SWOLEKAT CODE ENDS HERE
 
@@ -589,8 +608,14 @@ const filteredElements = parsedText.filter(({ type, data }) => {
 })
 
 const parsedElements = [];
+const messageIsSpoiler = isSpoiler(parsedText);
+
 filteredElements.forEach(({data, type}, index) => {
     if(type !== 'emote'){
+        if(messageIsSpoiler){
+            parsedElements.push(TextComponent(spoilerifyText(data)));
+            return;
+        }
         parsedElements.push(TextComponent(data));
         return;
     }

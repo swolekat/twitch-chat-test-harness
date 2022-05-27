@@ -771,6 +771,14 @@ border-color: {pronounsBadgeBorderColor};
     color: #000 !important;
 }
 
+.no-audio .message {
+    filter: invert(100%);
+}
+
+.no-video .message {
+    filter: grayscale(100%);
+}
+
 /*bored needs to be at the very end*/
 .bored .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

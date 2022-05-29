@@ -31,8 +31,9 @@ const classFromObjMap = {
 
 // custom. this is used in the BubbleComponent function
 function getBubbleClass(userId, badges) {
+    let allClasses = '';
     if(window.idToClassMap && idToClassMap[userId]){
-        return window.idToClassMap[userId];
+        allClasses = window.idToClassMap[userId];
     }
 
     return Object.keys(classFromObjMap).reduce((sum, key) => {
@@ -41,7 +42,7 @@ function getBubbleClass(userId, badges) {
             return sum;
         }
         return `${sum} ${key}`
-    }, '').trim();
+    }, allClasses).trim();
 }
 
 const classFromTextMap = {

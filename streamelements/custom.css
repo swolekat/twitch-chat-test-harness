@@ -750,6 +750,10 @@ border-color: {pronounsBadgeBorderColor};
     color: #000 !important;
 }
 
+.toxic-twinky .message *  {
+    font-family: "Permanent Marker", sans-serif !important;
+}
+
 .sportix .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jasper-lake_trans.jpg");
     background-size: cover;

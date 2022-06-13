@@ -747,7 +747,7 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://www.clipartkey.com/mpngs/m/315-3151731_green-biohazard-symbol-png.png");
     background-size: cover;
     background-position: center;
-    color: #000 !important;
+    color: #ACF67D !important;
 }
 
 .toxic-twinky .message *  {
@@ -770,6 +770,13 @@ border-color: {pronounsBadgeBorderColor};
 
 .lone-wanderer .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/canada.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
+.puma-party .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/blep.png");
     background-size: cover;
     background-position: center;
     color: #000 !important;

@@ -747,7 +747,7 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://www.clipartkey.com/mpngs/m/315-3151731_green-biohazard-symbol-png.png");
     background-size: cover;
     background-position: center;
-    color: #ACF67D !important;
+    color: #000 !important;
 }
 
 .toxic-twinky .message *  {
@@ -779,7 +779,7 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/blep.png");
     background-size: cover;
     background-position: center;
-    color: #000 !important;
+    color: #ACF67D !important;
 }
 
 .no-audio .message {

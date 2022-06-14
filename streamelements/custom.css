@@ -628,6 +628,7 @@ border-color: {pronounsBadgeBorderColor};
 }
 
 .vip .message > span,
+.puma-party .message > span,
 .sub .message > span {
     background: transparent;
     padding: 0;
@@ -657,7 +658,9 @@ border-color: {pronounsBadgeBorderColor};
 .colon-threee.emote-2 .message > span,
 .colon-threee.emote-4 .message > span,
 .owner.emote-2 .message > span,
-.owner.emote-4 .message > span
+.owner.emote-4 .message > span,
+.puma-party.emote-2 .message > span,
+.puma-party.emote-4 .message > span
 {
     background: transparent;
     padding: 0;
@@ -670,6 +673,8 @@ border-color: {pronounsBadgeBorderColor};
 
 .vip.emote-2 .emote,
 .vip.emote-4 .emote,
+.puma-party.emote-2 .emote,
+.puma-party.emote-4 .emote,
 .sub.emote-2 .emote,
 .sub.emote-4 .emote {
     background: transparent;
@@ -697,6 +702,16 @@ border-color: {pronounsBadgeBorderColor};
     padding: 0 5px;
 }
 
+.puma-party .message > span {
+    background: transparent;
+    padding: 0;
+}
+
+.puma-party.emote-2 .emote,
+.puma-party.emote-4 .emote {
+    background: transparent;
+}
+
 .vip .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
     background-size: cover;
@@ -708,6 +723,7 @@ border-color: {pronounsBadgeBorderColor};
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
     background-size: cover;
     background-position: center;
+    color: #000 !important;
 }
 
 .mod .message {
@@ -776,10 +792,18 @@ border-color: {pronounsBadgeBorderColor};
 }
 
 .puma-party .message {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/blep.png");
-    background-size: cover;
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/blep.png") #000;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
     color: #ACF67D !important;
+}
+
+.mitzumi .message {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mitzumi.png");
+    background-size: cover;
+    background-position: center;
+    color: #ff00dd !important;
 }
 
 .no-audio .message {

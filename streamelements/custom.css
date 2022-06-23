@@ -590,6 +590,14 @@ border-color: {pronounsBadgeBorderColor};
     animation-timing-function: ease-in-out;
 }
 
+.latest-subscriber .username-box {
+    box-shadow: -3px -12px 12px 4px #e3ad16;
+}
+
+.latest-subscriber .message {
+    box-shadow: -2px 5px 12px 8px #e3ad16;
+}
+
 @keyframes rollingEars1 {
     0% { top: -10px; }
     50% { top: 5px; }

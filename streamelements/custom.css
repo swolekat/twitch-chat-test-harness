@@ -556,6 +556,12 @@ border-color: {pronounsBadgeBorderColor};
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
     transform: rotate(135deg);
     border-radius: 0 0 0 0.25em;
+    z-index: 1;
+}
+
+.theme-animal-crossing .username-box > p {
+    z-index: 2;
+    position: relative;
 }
 
 .theme-animal-crossing .username-box:after {
@@ -569,6 +575,31 @@ border-color: {pronounsBadgeBorderColor};
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
     transform: rotate(135deg);
     border-radius: 0 0 0 0.25em;
+    z-index: 1;
+}
+
+.latest-subscriber .username-box:before {
+    animation: rollingEars1 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.latest-subscriber .username-box:after {
+    animation: rollingEars2 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes rollingEars1 {
+    0% { top: -10px; }
+    50% { top: 5px; }
+    100% { top: -10px; }
+}
+
+@keyframes rollingEars2 {
+    0% { top: 5px; }
+    50% { top: -10px; }
+    100% { top: 5px; }
 }
 
 .theme-animal-crossing .message {

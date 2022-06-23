@@ -27,10 +27,65 @@ const classFromObjMap = {
 'no-video': (badges) => {
     return badges.find(b => b.type === 'no_video');
 },
+    'latest-follower': (_,name) => {
+        return latestInfo.follower === name;
+    },
+    'latest-subscriber': (_,name) => {
+        return latestInfo.subscriber === name;
+    },
+    'latest-cheerer': (_,name) => {
+        return latestInfo.cheerer === name;
+    },
+    'latest-raider': (_,name) => {
+        return latestInfo.raider === name;
+    },
 };
 
+
+const latestInfo = {
+    follower: '',
+    subscriber: '',
+    cheerer: '',
+    raider: '',
+};
+
+const swolekatLoadFieldData = (obj) => {
+    const latestFollower = obj['follower-latest']?.name;
+    if(latestFollower){
+        latestInfo.follower = latestFollower;
+    }
+    const latestSubscriber = obj['subscriber-latest']?.name;
+    if(latestSubscriber){
+        latestInfo.subscriber = latestSubscriber;
+    }
+    const latestCheerer = obj['cheer-latest']?.name;
+    if(latestCheerer.length){
+        latestInfo.cheerer = latestCheerer;
+    }
+    const latestRaider = obj['raid-latest']?.name;
+    if(latestRaider){
+        latestInfo.raider = latestRaider;
+    }
+};
+
+window.addEventListener('onEventReceived', function (obj) {
+    const event = obj["detail"]["event"];
+    if(event.listener === 'follower-latest'){
+        latestInfo.follower = event.event.name;
+    }
+    if(event.listener === 'subscriber-latest'){
+        latestInfo.subscriber = event.event.name;
+    }
+    if(event.listener === 'cheer-latest'){
+        latestInfo.cheerer = event.event.name;
+    }
+    if(event.listener === 'raid-latest'){
+        latestInfo.subscriber = event.event.name;
+    }
+});
+
 // custom. this is used in the BubbleComponent function
-function getBubbleClass(userId, badges) {
+function getBubbleClass(userId, badges, name) {
     let allClasses = '';
     if(window.idToClassMap && idToClassMap[userId]){
         allClasses = window.idToClassMap[userId];
@@ -38,7 +93,7 @@ function getBubbleClass(userId, badges) {
 
     return Object.keys(classFromObjMap).reduce((sum, key) => {
         const func = classFromObjMap[key];
-        if(!func(badges, userId)){
+        if(!func(badges, name)){
             return sum;
         }
         return `${sum} ${key}`
@@ -156,6 +211,7 @@ pronouns: 'pronouns',
 // ---------------------------
 
 window.addEventListener('onWidgetLoad', async obj => {
+    swolekatLoadFieldData(obj.detail.session.data);
 loadFieldData(obj.detail.fieldData)
 
 conditionalMainClass('dark-mode', FieldData.darkMode)
@@ -639,7 +695,7 @@ filteredElements.forEach(({data, type}, index) => {
     parsedElements.push(ComplexEmoteComponent(data, children));
 });
 
-let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges), getTextClasses(parsedText)]
+let containerClasses = ['bubble', `emote-${FieldData.largeEmotes ? emoteSize : 1}`, getBubbleClass(userId, badges, name), getTextClasses(parsedText)]
 
 switch (messageType) {
     case 'highlight': {

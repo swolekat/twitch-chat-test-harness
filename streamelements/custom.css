@@ -550,8 +550,8 @@ border-color: {pronounsBadgeBorderColor};
     position: absolute;
     top: -10px;
     left: 15%;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     background-color: inherit;
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
     transform: rotate(135deg);
@@ -569,8 +569,8 @@ border-color: {pronounsBadgeBorderColor};
     position: absolute;
     top: -10px;
     right: 15%;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     background-color: inherit;
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
     transform: rotate(135deg);
@@ -616,8 +616,40 @@ border-color: {pronounsBadgeBorderColor};
   background: url("https://swolekat.github.io/twitch-chat-test-harness/images/gem-pattern.png") var(--borderColor);
 }
 
-.latest-raider .username-box:before {
+.latest-raider .username-box:after {
     display: none;
+}
+
+.latest-raider .username-box {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyepatch.png") left, var(--borderColor);
+    background-size: cover;
+    background-position-x: center;
+}
+
+.latest-follower .username-box:before {
+    animation: wavingEars1 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.latest-follower .username-box:after {
+    animation: wavingEars2 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes wavingEars1 {
+    0% {    transform: rotate(135deg); }
+    25% {     transform: rotate(105deg); }
+    75% {     transform: rotate(165deg); }
+    100% {    transform: rotate(135deg); }
+}
+
+@keyframes wavingEars2 {
+    0% {    transform: rotate(135deg); }
+    25% {     transform: rotate(165deg); }
+    75% {     transform: rotate(105deg); }
+    100% {    transform: rotate(135deg); }
 }
 
 .theme-animal-crossing .message {

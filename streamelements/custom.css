@@ -610,6 +610,10 @@ border-color: {pronounsBadgeBorderColor};
     100% { top: 5px; }
 }
 
+.latest-follower .username-box {
+  background: url("https://swolekat.github.io/twitch-chat-test-harness/images/gem-pattern.png") var(--borderColor);
+}
+
 .theme-animal-crossing .message {
     margin: 0;
     border-top-left-radius: 0;

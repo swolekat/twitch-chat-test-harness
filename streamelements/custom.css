@@ -610,8 +610,14 @@ border-color: {pronounsBadgeBorderColor};
     100% { top: 5px; }
 }
 
-.latest-follower .username-box {
+.latest-cheerer .username-box,
+.latest-cheerer .username-box:before,
+.latest-cheerer .username-box:after {
   background: url("https://swolekat.github.io/twitch-chat-test-harness/images/gem-pattern.png") var(--borderColor);
+}
+
+.latest-raider .username-box:before {
+    display: none;
 }
 
 .theme-animal-crossing .message {

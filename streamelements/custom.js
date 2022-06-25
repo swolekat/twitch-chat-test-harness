@@ -80,7 +80,7 @@ window.addEventListener('onEventReceived', function (obj) {
         latestInfo.cheerer = event.event.name;
     }
     if(event.listener === 'raid-latest'){
-        latestInfo.subscriber = event.event.name;
+        latestInfo.raider = event.event.name;
     }
 });
 

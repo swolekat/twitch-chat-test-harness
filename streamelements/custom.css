@@ -778,6 +778,7 @@ border-color: {pronounsBadgeBorderColor};
 .mod .message > span,
 .founder .message > span,
 .colon-threee .message > span,
+.yeshopno .message > span,
 .owner .message > span {
     background: rgba(255, 255, 255, 0.6);
     padding: 0 5px;
@@ -889,9 +890,10 @@ border-color: {pronounsBadgeBorderColor};
 
 .yeshopno .message {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/hop.png") #000;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
-    color: #fff !important;
+    background-repeat: no-repeat;
+    color: #0f3e8a !important;
 }
 
 .no-audio .message {

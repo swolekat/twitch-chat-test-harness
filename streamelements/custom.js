@@ -27,18 +27,30 @@ const classFromObjMap = {
 'no-video': (badges) => {
     return badges.find(b => b.type === 'no_video');
 },
-    'latest-follower': (_,name) => {
-        return latestInfo.follower === name;
-    },
-    'latest-subscriber': (_,name) => {
-        return latestInfo.subscriber === name;
-    },
-    'latest-cheerer': (_,name) => {
-        return latestInfo.cheerer === name;
-    },
-    'latest-raider': (_,name) => {
-        return latestInfo.raider === name;
-    },
+'latest-follower': (_,name) => {
+    if(name === undefined){
+        return false;
+    }
+    return latestInfo.follower.toLowerCase() === name.toLowerCase();
+},
+'latest-subscriber': (_,name) => {
+    if(name === undefined){
+        return false;
+    }
+    return latestInfo.subscriber.toLowerCase() === name.toLowerCase();
+},
+'latest-cheerer': (_,name) => {
+    if(name === undefined){
+        return false;
+    }
+    return latestInfo.cheerer.toLowerCase() === name.toLowerCase();
+},
+'latest-raider': (_,name) => {
+    if(name === undefined){
+        return false;
+    }
+    return latestInfo.raider.toLowerCase() === name.toLowerCase();
+},
 };
 
 
@@ -69,18 +81,19 @@ const swolekatLoadFieldData = (obj) => {
 };
 
 window.addEventListener('onEventReceived', function (obj) {
-    const event = obj["detail"]["event"];
+    const event = obj?.detail;
+    const name = event?.event?.name;
     if(event.listener === 'follower-latest'){
-        latestInfo.follower = event.event.name;
+        latestInfo.follower = name;
     }
     if(event.listener === 'subscriber-latest'){
-        latestInfo.subscriber = event.event.name;
+        latestInfo.subscriber = name;
     }
     if(event.listener === 'cheer-latest'){
-        latestInfo.cheerer = event.event.name;
+        latestInfo.cheerer = name;
     }
     if(event.listener === 'raid-latest'){
-        latestInfo.raider = event.event.name;
+        latestInfo.raider = name;
     }
 });
 

@@ -171,6 +171,7 @@ const ZERO_WIDTH_EMOTES = [
     'TakingNotes',
     'Love',
     'SPEED',
+    'vp'
 ];
 
 function isEmoteZeroWidth(emoteText){

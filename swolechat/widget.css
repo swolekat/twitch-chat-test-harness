@@ -1,0 +1,313 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: Nunito, Arial, sans-serif;
+    font-size: 18px;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    align-content: start;
+    overflow: visible;
+    padding: 30px;
+    flex-direction: column-reverse;
+    height: 100%;
+}
+
+@keyframes fade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes up {
+    from { transform: translateY(50px); }
+    to { transform: translateY(0px); }
+}
+
+
+.chat-message {
+    margin-top: 30px;
+    visibility: hidden;
+    position: relative;
+    min-width: 300px;
+    max-width: 500px;
+    width: var(--dynamicWidth);
+}
+
+.chat-message.animate {
+    visibility: visible;
+animation: fade reverse .5s,
+                          fade .5s calc({lifetime}s - .5s) forwards,
+                                                           up .5s,
+                                                                up reverse .5s calc({lifetime}s - .5s) forwards;
+}
+
+.chat-message.animate .username-section {
+    width: 100%;
+}
+
+.chat-message.animate.forever {
+    visibility: visible;
+    animation: fade reverse .5s, up .5s;
+}
+
+.username-section {
+    position: relative;
+    z-index: 2;
+    background: #888;
+    height: 40px;
+    padding: 0 10px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 20px 20px 0 0;
+}
+
+.username-section-content {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.username-section.white-text {
+    color: #fff;
+}
+
+.badge {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.message-section {
+    padding: 10px;
+    background: #FFFAE4;
+    border-radius: 0 0 20px 20px;
+    font-weight: bold;
+}
+
+.center-text .message-section {
+    text-align: center;
+}
+
+.message-wrapper {
+    display: inline-block;
+}
+
+.large-emotes .message-section {
+    text-align: center;
+}
+
+.large-emotes .emote {
+    height: 112px;
+}
+
+.medium-emotes .emote {
+    height: 3.5rem;
+    max-height: 112px;
+}
+
+.small-emotes .emote {
+    height: 1.75rem;
+    max-height: 112px;
+}
+
+.complex-emote {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+}
+
+.emote.zero-width {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent !important;
+}
+
+.raid-message {
+    background: #888888;
+    font-size: 72px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-message {
+    background: #888888;
+    font-size: 72px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.follower-message {
+    background: #888888;
+    font-size: 72px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ear {
+    position: absolute;
+    top: -15px;
+    height: 50px;
+    width: 50px;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+    transform: rotate(135deg);
+    border-radius: 0 0 0 0.25em;
+    z-index: 1;
+}
+
+.left-ear {
+    left: 15%;
+}
+
+.right-ear {
+    right: 15%;
+}
+
+/* special classes */
+.prime .message-wrapper,
+.mod .message-wrapper,
+.founder .message-wrapper,
+.colon-three .message-wrapper,
+.mindless-seal .message-wrapper,
+.yeshopno .message-wrapper,
+.redhotboss .message-wrapper,
+.owner .message-wrapper {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+}
+
+.vip .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.founder .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mugi.gif");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
+.mod .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/sword.gif");
+    background-size: cover;
+    background-position: center;
+    color: #057206 !important;
+}
+
+.owner .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyes.png");
+    background-size: cover;
+    background-position: center;
+    color: #bb0101 !important;
+}
+
+.glodeelocks .message-section {
+    background: url("https://cdn.discordapp.com/attachments/886759904583495700/894453131621048320/image0.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
+.mindless-seal .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/seal-pattern.jpg");
+    background-repeat: repeat;
+}
+
+.colon-threee .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/falcoDrill.gif");
+    background-size: cover;
+    background-position: center;
+    color: #FF4A80 !important;
+}
+
+.toxic-twinky .message-section {
+    background: url("https://www.clipartkey.com/mpngs/m/315-3151731_green-biohazard-symbol-png.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
+.toxic-twinky .message-section *  {
+    font-family: "Permanent Marker", sans-serif !important;
+}
+
+.sportix .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jasper-lake_trans.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #2b2b2b !important;
+}
+
+.oserium .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/oserium.gif");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
+.lone-wanderer .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/canada.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
+}
+
+.puma-party .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/blep.png") #000;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #ACF67D !important;
+}
+
+.mitzumi .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mitzumi.png");
+    background-size: cover;
+    background-position: center;
+    color: #ff00dd !important;
+}
+
+.yeshopno .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/hop.png") #000;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #0f3e8a !important;
+}
+
+.redhotboss .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/baikenWalk.gif") #fff;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    color: #000000 !important;
+}
+
+
+/* bored MUST be last*/
+.bored .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #000 !important;
+}
+
+.bored .message-wrapper {
+    background: rgba(255, 255, 255, 0.6) !important;
+    padding: 5px !important;
+}
+

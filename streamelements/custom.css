@@ -897,11 +897,11 @@ border-color: {pronounsBadgeBorderColor};
 }
 
 .redhotboss .message {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/baikenWalk.gif") #000;
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/baikenWalk.gif") #fff;
     background-size: contain;
     background-position: center;
     background-repeat: repeat-x;
-    color: #ff6a00 !important;
+    color: #000000 !important;
 }
 
 .no-audio .message {

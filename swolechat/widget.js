@@ -150,9 +150,9 @@ const createMessageHtml = ({
     // don't mess with data-message-id, data-user-id or the chat-message class name
     return `
         <div data-message-id="${msgId}" data-user-id="${userId}" class="${chatMessageClass}" >
-            <div class="left-ear ear" style="background: ${color}" />
-            <div class="right-ear ear" style="background: ${color}" />
-            <div class="username-section ${isColorLight(color) ? '' : 'white-text'}" style="background: ${color}">
+            <div class="left-ear ear" style="--background: ${color}" />
+            <div class="right-ear ear" style="--background: ${color}" />
+            <div class="username-section ${isColorLight(color) ? '' : 'white-text'}" style="--background: ${color}">
                 <div class="username-section-content">
                     ${badgeHtml}
                     ${displayName}

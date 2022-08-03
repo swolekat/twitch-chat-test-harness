@@ -59,7 +59,7 @@ animation: fade reverse .5s,
 .username-section {
     position: relative;
     z-index: 2;
-    background: #888;
+    background: var(--background);
     height: 40px;
     padding: 0 10px;
     font-weight: bold;
@@ -163,7 +163,8 @@ animation: fade reverse .5s,
     clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
     transform: rotate(135deg);
     border-radius: 0 0 0 0.25em;
-    z-index: 1;
+    z-index: -1;
+    background: var(--background);
 }
 
 .left-ear {
@@ -193,6 +194,57 @@ animation: fade reverse .5s,
 .all-caps .message-wrapper {
     animation: shake 1s;
     animation-iteration-count: infinite;
+}
+
+.latest-subscriber:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    box-shadow: 0 0 20px 10px #e3ad16
+}
+
+.latest-cheerer .username-section,
+.latest-cheerer .ear {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/gem-pattern.png") var(--background);
+}
+
+.latest-raider .right-ear {
+    display: none;
+}
+
+.latest-raider .username-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/eyepatch.png") left, var(--background);
+    background-size: cover;
+    background-position-x: center;
+}
+
+.latest-follower .left-ear {
+    animation: wavingEars1 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.latest-follower .right-ear {
+    animation: wavingEars2 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes wavingEars1 {
+    0% {    transform: rotate(135deg); }
+    25% {     transform: rotate(125deg); }
+    75% {     transform: rotate(145deg); }
+    100% {    transform: rotate(135deg); }
+}
+
+@keyframes wavingEars2 {
+    0% {    transform: rotate(135deg); }
+    25% {     transform: rotate(145deg); }
+    75% {     transform: rotate(125deg); }
+    100% {    transform: rotate(135deg); }
 }
 
 /* special classes */

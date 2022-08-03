@@ -4,7 +4,7 @@
 
 * {
     font-family: Nunito, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     overflow-wrap: break-word;
     margin: 0;
     padding: 0;
@@ -72,7 +72,7 @@ animation: fade reverse .5s,
 .username-section-content {
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: 28px;
 }
 
 .username-section.white-text {
@@ -105,17 +105,17 @@ animation: fade reverse .5s,
 }
 
 .large-emotes .emote {
-    height: 112px;
+    height: 150px;
 }
 
 .medium-emotes .emote {
     height: 3.5rem;
-    max-height: 112px;
+    max-height: 150px;
 }
 
 .small-emotes .emote {
     height: 1.75rem;
-    max-height: 112px;
+    max-height: 150px;
 }
 
 .complex-emote {

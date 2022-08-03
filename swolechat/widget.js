@@ -450,8 +450,8 @@ const onMessage = (event) => {
 
 /* other events */
 const onRaid = (event) => {
-    const name = event?.event?.name;
-    const amount = event?.event?.amount;
+    const name = event?.name;
+    const amount = event?.amount;
     data.latestRaider = name;
     if(!data.raidMessages){
         return;
@@ -482,7 +482,7 @@ const onDeleteMessages = (event) => {
 };
 
 const onFollower = (event) => {
-    const name = event?.event?.name;
+    const name = event?.name;
     data.latestFollower = name;
     if(!data.followMessages){
         return;
@@ -493,7 +493,7 @@ const onFollower = (event) => {
 };
 
 const onSubscriber = (event) => {
-    const name = event?.event?.name;
+    const name = event?.name;
     data.latestSubscriber = name;
     if(!data.subMessages){
         return;
@@ -504,7 +504,7 @@ const onSubscriber = (event) => {
 };
 
 const onCheer = (event) => {
-    const name = event?.event?.name;
+    const name = event?.name;
     data.latestCheerer = name;
 };
 

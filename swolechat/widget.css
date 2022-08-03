@@ -297,6 +297,14 @@ animation: fade reverse .5s,
     color: #000000 !important;
 }
 
+.sabbage .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/cabbage.jpg") #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000000 !important;
+}
+
 
 /* bored MUST be last*/
 .bored .message-section {

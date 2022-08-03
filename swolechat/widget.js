@@ -140,9 +140,11 @@ const createMessageHtml = ({
                            }) => {
 
     const textClass = getTextClasses(messageContentsArray);
-    const isEmoteOnlyClass = messageContentsArray.every(({type}) => type === 'emote') && emoteSize === 'large-emotes' ? 'center-text' : '';
+    const isEmoteOnly = messageContentsArray.every(({type}) => type === 'emote');
+    const emoteOnlyClass = isEmoteOnly ? 'emote-only' : '';
+    const centerTextClass = isEmoteOnly && emoteSize === 'large-emotes' ? 'center-text' : '';
     const badgeHtml = badges.map(badge => `<img class="badge" src="${badge.url}" />`).join('\n');
-    const chatMessageClass = `chat-message ${emoteSize} ${eventClasses} ${textClass} ${isEmoteOnlyClass}`;
+    const chatMessageClass = `chat-message ${emoteSize} ${eventClasses} ${textClass} ${centerTextClass} ${emoteOnlyClass}`;
     // const chatMessageClass = `chat-message vip ${isEmoteOnlyClass}`;
 
     // don't mess with data-message-id, data-user-id or the chat-message class name

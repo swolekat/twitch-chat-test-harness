@@ -404,6 +404,17 @@ const showMessage = (msgId, html) => {
     }, 1000);
 };
 
+const altColors = [
+    '#FF4A80', '#FF7070', '#FA8E4B', '#FEE440',
+    '#5FFF77', '#00F5D4', '#00BBF9', '#4371FB',
+    '#9B5DE5', '#F670DD',
+];
+
+const getColorBasedOnId = (userId) => {
+    const number = Number.parseInt(userId, 10);
+    return altColors[number % altColors.length];
+};
+
 const createAndShowMessage = (event) => {
     let {
         badges = [],
@@ -415,7 +426,7 @@ const createAndShowMessage = (event) => {
         displayColor: color
     } = event.data;
     if(!color){
-        color = '#ccc';
+        color = getColorBasedOnId(userId);
     }
 
     const messageContentsArray = processMessageText(htmlEncode(text), emotes);

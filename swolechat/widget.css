@@ -261,6 +261,12 @@ animation: fade reverse .5s,
     padding: 5px;
 }
 
+.puma-party .message-wrapper,
+.vip .message-wrapper {
+    background: transparent;
+    padding: 0;
+}
+
 .vip .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
     background-size: cover;

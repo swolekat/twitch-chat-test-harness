@@ -405,7 +405,7 @@ const showMessage = (msgId, html) => {
 };
 
 const createAndShowMessage = (event) => {
-    const {
+    let {
         badges = [],
         userId = '',
         displayName = '',
@@ -414,6 +414,9 @@ const createAndShowMessage = (event) => {
         msgId = '',
         displayColor: color
     } = event.data;
+    if(!color){
+        color = '#ccc';
+    }
 
     const messageContentsArray = processMessageText(htmlEncode(text), emotes);
     const emoteSize = calcEmoteSize(messageContentsArray);

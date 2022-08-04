@@ -63,7 +63,7 @@ animation: fade reverse .5s,
     height: 40px;
     padding: 0 10px;
     font-weight: bold;
-    color: #fff;
+    color: #000;
     line-height: 40px;
     display: inline-block;
     border-radius: 20px 20px 0 0;
@@ -90,6 +90,7 @@ animation: fade reverse .5s,
     background: #FFFAE4;
     border-radius: 0 0 20px 20px;
     font-weight: bold;
+    margin-top: -2px;
 }
 
 .center-text .message-section {

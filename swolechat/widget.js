@@ -167,14 +167,33 @@ const createMessageHtml = ({
     `;
 };
 
+const getRaidItem = (displayName, amount, index) => {
+  return `
+        <div class="raid-item" style="transform: translateZ(${index * 10}px)">
+            <div class="raid-ears">
+                <div class="ear left-ear"></div>
+                <div class="ear right-ear"></div>
+            </div>
+            <div class="raid-message-text">
+                WOWZERS ${displayName} JUST RAIDED WITH ${amount} PEOPLE!
+            </div>
+        </div>
+    `;
+};
+
 const createRaidMessageHtml = ({
                                    displayName, msgId, amount
                                }) => {
     // don't mess with data-message-id, data-user-id or the chat-message class name
+    const raidItems = [];
+    for(let x = 0; x < 20; x++){
+        raidItems.push(getRaidItem(displayName, amount, x));
+    }
+
     return `
         <div data-message-id="${msgId}" class="chat-message raid-message">
             <div class="raid-message-content">
-                WOWZERS ${displayName} JUST RAIDED WITH ${amount} PEOPLE!
+                ${raidItems.join('\n')}
             </div>
         </div>
     `;

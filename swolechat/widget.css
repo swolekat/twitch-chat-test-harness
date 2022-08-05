@@ -132,9 +132,73 @@ animation: fade reverse .5s,
     background: transparent !important;
 }
 
+@keyframes raidShake {
+    0% {
+        transform: rotate3d(0.5, 0.5, 0, 15deg);
+    }
+    25% {
+        transform: rotate3d(0.5, -0.5, 0, 15deg);
+    }
+    50% {
+        transform: rotate3d(-0.5, -0.5, 0, 15deg);
+    }
+    75% {
+        transform: rotate3d(-0.5, 0.5, 0, 15deg);
+    }
+    100% {
+        transform: rotate3d(0.5, 0.5, 0, 15deg);
+    }
+}
+
 .raid-message {
-    background: #888888;
-    font-size: 72px;
+    margin: 40px 0 ;
+}
+
+.raid-message-content {
+    position: relative;
+    animation: raidShake linear 4s forwards;
+    animation-iteration-count: infinite;
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
+
+.raid-item:not(:first-child){
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.raid-ears {
+
+}
+
+.raid-item .ear {
+    background: #C61618;
+}
+
+.raid-item .raid-message-text {
+    background: #C61618;
+}
+
+.raid-item:nth-child(3n+1) .ear {
+    background: #fff;
+}
+
+.raid-item:nth-child(3n+1) .raid-message-text {
+    background: #fff;
+}
+
+.raid-item:nth-child(3n) .ear {
+    background: #000;
+}
+
+.raid-item:nth-child(3n) .raid-message-text {
+    background: #000;
+}
+
+.raid-message-text {
+    color: #fff;
+    font-size: 36px;
     padding: 20px;
     font-weight: bold;
     text-align: center;

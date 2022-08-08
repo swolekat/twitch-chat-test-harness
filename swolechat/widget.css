@@ -449,6 +449,14 @@ animation: fade reverse .5s,
     color: #000000 !important;
 }
 
+.soupkun .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/soup-gir.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #00ff2b !important;
+}
+
 
 /* bored MUST be last*/
 .bored .message-section {

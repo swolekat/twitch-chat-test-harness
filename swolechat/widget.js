@@ -205,7 +205,7 @@ const createSubMessageHtml = ({
     // don't mess with data-message-id, data-user-id or the chat-message class name
     return `
         <div data-message-id="${msgId}" class="chat-message sub-message">
-            <div class="raid-message-content">
+            <div class="sub-message-content">
                 POGGIES ${displayName} JUST SUBBED!
             </div>
         </div>
@@ -218,7 +218,7 @@ const createFollowerMessageHtml = ({
     // don't mess with data-message-id, data-user-id or the chat-message class name
     return `
         <div data-message-id="${msgId}" class="chat-message follower-message">
-            <div class="raid-message-content">
+            <div class="follower-message-content">
                 WOWZERS ${displayName} JUST FOLLOWED! THANK YOU!
             </div>
         </div>

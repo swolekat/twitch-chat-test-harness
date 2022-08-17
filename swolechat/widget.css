@@ -212,6 +212,10 @@ animation: fade reverse .5s,
     text-align: center;
 }
 
+.sub-message-content {
+
+}
+
 .follower-message {
     background: #888888;
     font-size: 72px;

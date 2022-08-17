@@ -205,15 +205,28 @@ animation: fade reverse .5s,
 }
 
 .sub-message {
-    background: #888888;
+    background: url('https://swolekat.github.io/twitch-chat-test-harness/images/gold-glitter.gif');
+    background-size: cover;
     font-size: 72px;
     padding: 20px;
     font-weight: bold;
     text-align: center;
+    position: relative;
+}
+
+.sub-message:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url('https://swolekat.github.io/twitch-chat-test-harness/images/sparkles.gif');
 }
 
 .sub-message-content {
-
+    position: relative;
+    z-index: 2;
 }
 
 .follower-message {

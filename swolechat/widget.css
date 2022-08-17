@@ -207,26 +207,52 @@ animation: fade reverse .5s,
 .sub-message {
     background: url('https://swolekat.github.io/twitch-chat-test-harness/images/gold-glitter.gif');
     background-size: cover;
+    background-position: center center;
     font-size: 72px;
-    padding: 20px;
+    padding: 20px 90px;
     font-weight: bold;
     text-align: center;
     position: relative;
-}
-
-.sub-message:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: url('https://swolekat.github.io/twitch-chat-test-harness/images/sparkles.gif');
+    color: #fff;
 }
 
 .sub-message-content {
     position: relative;
     z-index: 2;
+}
+
+@keyframes subShake {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 25%;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.sub-message:after,
+.sub-message:before {
+    content: '';
+    position: absolute;
+    background: url('https://cdn.7tv.app/emote/62ccee139882dfa63c826424/4x');
+    background-size: cover;
+    animation: subShake linear 300ms forwards;
+    animation-iteration-count: infinite;
+    height: 100%;
+    width: 90px;
+    bottom: 0;
+}
+
+.sub-message:before {
+    left: 0;
+    transform: scaleX(-1);
+}
+
+.sub-message:after {
+    right: 0;
 }
 
 .follower-message {

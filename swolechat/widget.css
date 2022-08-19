@@ -256,11 +256,31 @@ animation: fade reverse .5s,
 }
 
 .follower-message {
-    background: #888888;
-    font-size: 72px;
+    background: url('https://swolekat.github.io/twitch-chat-test-harness/images/thighs.gif');
+    background-size: cover;
+    color: #ff0000;
+    font-size: 100px;
     padding: 20px;
     font-weight: bold;
     text-align: center;
+    background-position: bottom;
+}
+
+@keyframes animateBg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.follower-message-content {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red, violet, indigo, blue, green, yellow, orange, red, violet, indigo, blue, green, yellow, orange, red);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    animation: animateBg 2s infinite linear;
+    color: transparent;
 }
 
 .ear {

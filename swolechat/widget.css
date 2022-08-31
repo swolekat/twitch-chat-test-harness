@@ -452,6 +452,10 @@ animation: fade reverse .5s,
     font-family: "Permanent Marker", sans-serif !important;
 }
 
+.coggers .message-section *  {
+    font-family: 'UnifrakturMaguntia', cursive !important;
+}
+
 .sportix .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/jasper-lake_trans.jpg");
     background-size: cover;
@@ -519,6 +523,15 @@ animation: fade reverse .5s,
     background-repeat: no-repeat;
     color: #00ff2b !important;
 }
+
+.coggers .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/red_dragon.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff !important;
+}
+
 
 
 /* bored MUST be last*/

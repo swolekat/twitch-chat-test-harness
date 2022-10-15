@@ -327,11 +327,13 @@ animation: fade reverse .5s,
 .latest-subscriber:before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 5px;
-    bottom: 5px;
-    right: 5px;
-    box-shadow: 0 0 20px 10px #e3ad16
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px #e3ad16;
+    z-index: -1;
 }
 
 .latest-cheerer .username-section,
@@ -475,6 +477,18 @@ animation: fade reverse .5s,
     background-size: cover;
     background-position: center;
     color: #000 !important;
+}
+
+.puma-party:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px rgba(114, 114, 114, 1);
+    z-index: -1;
 }
 
 .puma-party .message-section {

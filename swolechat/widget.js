@@ -60,6 +60,7 @@ const ZERO_WIDTH_EMOTES = [
     'Love',
     'SPEED',
     'vp',
+    'Wanking'
 ];
 
 const classFromTextMap = {
@@ -233,7 +234,7 @@ const data = {};
 let messageIds = [];
 const MAX_MESSAGES = 50;
 
-window.addEventListener('onWidgetLoad', async obj => {
+window.addEventListener('onWidgetLoad', obj => {
     processSessionData(obj.detail.session.data);
     processFieldData(obj.detail.fieldData);
 })

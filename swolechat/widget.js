@@ -70,6 +70,9 @@ const classFromTextMap = {
     'bored': (textContent) => {
         return textContent.some(item => item.data && item.data.indexOf('bored') !== -1);
     },
+    'fire': (textContent) => {
+        return textContent.some(item => item.data && (item.data.indexOf('hot') !== -1 || item.data.indexOf('fire') !== -1));
+    },
 };
 
 const getTextClasses = (messageContentsArray) => {

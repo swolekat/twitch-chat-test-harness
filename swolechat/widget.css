@@ -561,3 +561,13 @@ animation: fade reverse .5s,
     padding: 5px !important;
 }
 
+.fire .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/fire.gif") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #fff !important;
+}
+
+.fire .message-wrapper {
+    padding: 5px !important;
+}

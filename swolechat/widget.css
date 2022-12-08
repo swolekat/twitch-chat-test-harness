@@ -569,5 +569,6 @@ animation: fade reverse .5s,
 }
 
 .fire .message-wrapper {
-    padding: 5px !important;
+    padding: 0 !important;
+    background: none !important;
 }

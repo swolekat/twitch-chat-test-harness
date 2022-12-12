@@ -71,7 +71,16 @@ const classFromTextMap = {
         return textContent.some(item => item.data && item.data.indexOf('bored') !== -1);
     },
     'fire': (textContent) => {
-        return textContent.some(item => item.data && (item.data.indexOf('hot') !== -1 || item.data.indexOf('fire') !== -1));
+        return textContent.some(item => {
+            return item.data && (
+                item.data.toLowerCase().startsWith('hot ') ||
+                item.data.toLowerCase().endsWith(' hot') ||
+                item.data.toLowerCase().indexOf(' hot ') !== -1 ||
+                item.data.toLowerCase().startsWith('fire ') ||
+                item.data.toLowerCase().endsWith(' fire') ||
+                item.data.toLowerCase().indexOf(' fire ') !== -1
+            );
+        });
     },
 };
 

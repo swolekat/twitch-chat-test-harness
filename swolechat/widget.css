@@ -449,6 +449,8 @@ animation: fade reverse .5s,
     background-size: cover;
     background-position: center;
     color: #000 !important;
+    background: transparent !important;
+    padding: 0 !important;
 }
 
 .toxic-twinky .message-section *  {

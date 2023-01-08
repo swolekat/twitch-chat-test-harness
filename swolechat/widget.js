@@ -245,6 +245,7 @@ const createFollowerMessageHtml = ({
 const data = {};
 let messageIds = [];
 const MAX_MESSAGES = 50;
+let smellyOne = '';
 
 window.addEventListener('onWidgetLoad', obj => {
     processSessionData(obj.detail.session.data);
@@ -383,6 +384,12 @@ const classFromObjMap = {
         }
         return data.latestRaider.toLowerCase() === name.toLowerCase();
     },
+    'smelly': (_, name) => {
+        if(name == undefined){
+            return false;
+        }
+        return smellyOne.toLowerCase() == name.toLowerCase();
+    },
 };
 
 const getClassFromEventData = ({userId, badges, name}) => {
@@ -481,7 +488,12 @@ const cleanUpMessages = () => {
 };
 
 const onMessage = (event) => {
-    const {nick = '', name = '', text = '', msgId} = event.data;
+    const {nick = '', name = '', text = '', msgId, badges = []} = event.data;
+
+    const isBroadcaster = badges.find(b => b.type === 'broadcaster');
+    if(isBroadcaster && text.startsWith('!stinky')) {
+        smellyOne = text.replace('!stinky', '').replace('@', '').trim();
+    }
 
     if(shouldNotShowMessage({text, name, nick})){
         return;

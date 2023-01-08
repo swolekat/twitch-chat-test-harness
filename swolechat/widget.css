@@ -580,19 +580,18 @@ animation: fade reverse .5s,
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/garbage.png") !important;
     background-size: cover !important;
     background-position: center !important;
-    color: #963e0a !important;
+    color: #dce91b !important;
 }
 
 .smelly:after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/smelly.gif") !important;
-    background-size: cover !important;
-    background-position: center !important;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-size: contain;
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/smelly.gif") no-repeat center;
 }
 
 .smelly .message-wrapper {

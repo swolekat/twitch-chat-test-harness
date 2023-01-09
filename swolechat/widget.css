@@ -392,6 +392,7 @@ animation: fade reverse .5s,
 }
 
 .puma-party .message-wrapper,
+.toxic-twinky .message-wrapper,
 .vip .message-wrapper {
     background: transparent;
     padding: 0;
@@ -449,8 +450,6 @@ animation: fade reverse .5s,
     background-size: cover;
     background-position: center;
     color: #000 !important;
-    background: transparent !important;
-    padding: 0 !important;
 }
 
 .toxic-twinky .message-section *  {

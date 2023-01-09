@@ -493,6 +493,7 @@ const onMessage = (event) => {
     const isBroadcaster = badges.find(b => b.type === 'broadcaster');
     if(isBroadcaster && text.startsWith('!stinky')) {
         smellyOne = text.replace('!stinky', '').replace('@', '').trim();
+        return;
     }
 
     if(shouldNotShowMessage({text, name, nick})){

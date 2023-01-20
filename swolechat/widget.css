@@ -382,18 +382,26 @@ animation: fade reverse .5s,
 .prime .message-wrapper,
 .mod .message-wrapper,
 .founder .message-wrapper,
-.colon-three .message-wrapper,
-.mindless-seal .message-wrapper,
-.yeshopno .message-wrapper,
-.redhotboss .message-wrapper,
 .owner .message-wrapper {
     background: rgba(255, 255, 255, 0.6);
     padding: 5px;
 }
 
-.puma-party .message-wrapper,
-.toxic-twinky .message-wrapper,
 .vip .message-wrapper {
+    background: transparent;
+    padding: 0;
+}
+
+.colon-three .message-wrapper,
+.mindless-seal .message-wrapper,
+.yeshopno .message-wrapper,
+.redhotboss .message-wrapper {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+}
+
+.puma-party .message-wrapper,
+.toxic-twinky .message-wrapper {
     background: transparent;
     padding: 0;
 }

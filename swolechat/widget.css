@@ -569,6 +569,11 @@ animation: fade reverse .5s,
     color: #60adff !important;
 }
 
+.boney .message-wrapper {
+    background: none !important;
+    padding: 0 !important;
+}
+
 
 /* bored MUST be last*/
 .bored .message-section {

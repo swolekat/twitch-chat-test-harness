@@ -246,6 +246,7 @@ const data = {};
 let messageIds = [];
 const MAX_MESSAGES = 50;
 let smellyOne = '';
+let wideCooldown = '';
 
 window.addEventListener('onWidgetLoad', obj => {
     processSessionData(obj.detail.session.data);
@@ -301,14 +302,29 @@ const createEmoteRegex = (emotes) => {
     return new RegExp(regex, 'g')
 }
 
+const stringToWide = (str) => {
+    return str.split('').map((char) => {
+        const code = char.charCodeAt(0);
+        const wideCode = code + 65248;
+        return String.fromCharCode(wideCode);
+    }).join('');
+};
+
+const formatText = (text) => {
+    if(!wideCooldown){
+        return text;
+    }
+    return stringToWide(text);
+};
+
 const processMessageText = (text, emotes) => {
     if (!emotes || emotes.length === 0) {
-        return [{ type: 'text', data: text }];
+        return [{ type: 'text', data: formatText(text) }];
     }
 
     const emoteRegex = createEmoteRegex(emotes.map(e => htmlEncode(e.name)))
 
-    const textObjects = text.split(emoteRegex).map(string => ({ type: 'text', data: string }));
+    const textObjects = text.split(emoteRegex).map(string => ({ type: 'text', data: formatText(string) }));
     const lastTextObject = textObjects.pop();
 
     const parsedText = textObjects.reduce((acc, textObj, index) => {
@@ -493,6 +509,13 @@ const onMessage = (event) => {
     const isBroadcaster = badges.find(b => b.type === 'broadcaster');
     if(isBroadcaster && text.startsWith('!stinky')) {
         smellyOne = text.replace('!stinky', '').replace('@', '').trim();
+        return;
+    }
+
+    if(isBroadcaster && text.startsWith('!wide')) {
+        wideCooldown = setTimeout(() => {
+            wideCooldown = undefined;
+        }, 45000);
         return;
     }
 

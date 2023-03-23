@@ -60,7 +60,8 @@ const ZERO_WIDTH_EMOTES = [
     'Love',
     'SPEED',
     'vp',
-    'Wanking'
+    'Wanking',
+    'spilledGlue'
 ];
 
 const classFromTextMap = {

@@ -575,6 +575,10 @@ animation: fade reverse .5s,
     color: #000 !important;
 }
 
+.potato_ .message-section *  {
+    font-family: "Comic Neue", sans-serif !important;
+}
+
 
 /* bored MUST be last*/
 .bored .message-section {

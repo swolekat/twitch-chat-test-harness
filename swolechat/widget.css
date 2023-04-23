@@ -513,13 +513,6 @@ animation: fade reverse .5s,
     color: #ACF67D !important;
 }
 
-.mitzumi .message-section {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/mitzumi.png");
-    background-size: cover;
-    background-position: center;
-    color: #ff00dd !important;
-}
-
 .yeshopno .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/hop.png") #000;
     background-size: contain;
@@ -572,6 +565,13 @@ animation: fade reverse .5s,
 .boney .message-wrapper {
     background: none !important;
     padding: 0 !important;
+}
+
+.potato_ .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/potato.png");
+    background-size: cover;
+    background-position: center;
+    color: #000 !important;
 }
 
 

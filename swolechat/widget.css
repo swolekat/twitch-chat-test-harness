@@ -395,6 +395,7 @@ animation: fade reverse .5s,
 .colon-three .message-wrapper,
 .mindless-seal .message-wrapper,
 .yeshopno .message-wrapper,
+.potato_ .message-wrapper,
 .redhotboss .message-wrapper {
     background: rgba(255, 255, 255, 0.6);
     padding: 5px;
@@ -568,7 +569,7 @@ animation: fade reverse .5s,
 }
 
 .potato_ .message-section {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/potato.png");
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/potato.png") #fff;
     background-size: cover;
     background-position: center;
     color: #000 !important;

@@ -580,7 +580,7 @@ animation: fade reverse .5s,
 }
 
 .akaineko77 .message-section {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/StarfieldSimulation.gif") #000;
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/StarfieldSimulation.gif");
     background-size: cover;
     background-position: center;
     color: #d33122 !important;

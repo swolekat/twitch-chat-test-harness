@@ -306,6 +306,12 @@ const createEmoteRegex = (emotes) => {
 const stringToWide = (str) => {
     return str.split('').map((char) => {
         const code = char.charCodeAt(0);
+        if(char === '`' || char === '’' || char === '‘' || char === '\''){
+            return '＇';
+        }
+        if(char === '‟' || char === '"' || char === '“' || char === '”' || char === '"'){
+            return '＂';
+        }
         if(!char.match( /^[A-Za-z0-9]+$/)){
             return char;
         }

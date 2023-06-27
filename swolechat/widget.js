@@ -329,7 +329,7 @@ const formatText = (text) => {
 
 const processMessageText = (text, emotes) => {
     if (!emotes || emotes.length === 0) {
-        return [{ type: 'text', data: formatText(text) }];
+        return [{ type: 'text', data: text }];
     }
 
     const emoteRegex = createEmoteRegex(emotes.map(e => htmlEncode(e.name)))
@@ -494,7 +494,7 @@ const createAndShowMessage = (event) => {
         color = getColorBasedOnId(userId);
     }
 
-    const messageContentsArray = processMessageText(htmlEncode(text), emotes);
+    const messageContentsArray = processMessageText(htmlEncode(formatText(text)), emotes);
     const emoteSize = calcEmoteSize(messageContentsArray);
     const eventClasses = getClassFromEventData({userId, badges, name: displayName});
 

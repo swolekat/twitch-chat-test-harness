@@ -590,6 +590,19 @@ animation: fade reverse .5s,
     font-family: "Castoro Titling", sans-serif !important;
 }
 
+.stjimmy1995 .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/lain.gif") #000;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    color: #fff !important;
+}
+
+.stjimmy1995 .message-section *  {
+    font-family: 'Rubik Glitch', cursive !important;
+    font-weight: 100;
+}
+
 /* bored MUST be last*/
 .bored .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

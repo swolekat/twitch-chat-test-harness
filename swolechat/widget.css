@@ -238,7 +238,7 @@ animation: fade reverse .5s,
 .sub-message:before {
     content: '';
     position: absolute;
-    background: url('https://cdn.7tv.app/emote/62ccee139882dfa63c826424/4x');
+    background: url('https://cdn.7tv.app/emote/62ccee139882dfa63c826424/4x.webp');
     background-size: cover;
     animation: subShake linear 300ms forwards;
     animation-iteration-count: infinite;

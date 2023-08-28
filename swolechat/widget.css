@@ -603,6 +603,21 @@ animation: fade reverse .5s,
     font-weight: 100;
 }
 
+.bubbrubb .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bubbrubb.png") #061062;
+    background-size: cover;
+    background-position: 50% 36%;
+}
+
+.bubbrubb .message-section *  {
+    font-family: 'Anton', cursive !important;
+    font-weight: 900;
+    color: #fff !important;
+    paint-order: stroke fill;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #061062;
+}
+
 /* bored MUST be last*/
 .bored .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

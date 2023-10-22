@@ -126,7 +126,7 @@ const convertMessageContentsArrayToHtml = (messageContentsArray, emoteSize) => {
             nextElementIndex++;
             nextElement = messageContentsArray[nextElementIndex];
         }
-        const mainEmote = `<img src="${getUrlFromEmoteSizeAndData(data, emoteSize)}" class="emote" />`;
+        const mainEmote = `<img src="${getUrlFromEmoteSizeAndData(data, emoteSize)}" class="emote ${wideCooldown ? 'wide-emote': ''}" />`;
         if(children.length === 0){
             parsedElements.push(mainEmote)
             return;
@@ -134,7 +134,7 @@ const convertMessageContentsArrayToHtml = (messageContentsArray, emoteSize) => {
         parsedElements.push(`
             <div class="complex-emote">
                 ${mainEmote}
-                ${children.map(src => `<img src="${getUrlFromEmoteSizeAndData(src, emoteSize)}" class="emote zero-width" />`).join('\n')}
+                ${children.map(src => `<img src="${getUrlFromEmoteSizeAndData(src, emoteSize)}" class="emote zero-width ${wideCooldown ? 'wide-emote': ''}" />`).join('\n')}
             </div>
         `);
     });
@@ -334,7 +334,7 @@ const formatText = (text) => {
 
 const processMessageText = (text, emotes) => {
     if (!emotes || emotes.length === 0) {
-        return [{ type: 'text', data: text }];
+        return [{ type: 'text', data: formatText(text) }];
     }
 
     const emoteRegex = createEmoteRegex(emotes.map(e => htmlEncode(e.name)))
@@ -499,7 +499,7 @@ const createAndShowMessage = (event) => {
         color = getColorBasedOnId(userId);
     }
 
-    const messageContentsArray = processMessageText(htmlEncode(formatText(text)), emotes);
+    const messageContentsArray = processMessageText(htmlEncode(text), emotes);
     const emoteSize = calcEmoteSize(messageContentsArray);
     const eventClasses = getClassFromEventData({userId, badges, name: displayName});
 

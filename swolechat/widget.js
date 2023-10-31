@@ -106,12 +106,16 @@ const convertMessageContentsArrayToHtml = (messageContentsArray, emoteSize) => {
     const spoiler = isSpoiler(messageContentsArray);
 
     messageContentsArray.forEach(({data, type}, index) => {
-        if(type !== 'emote'){
+        if(type === 'text'){
             if(spoiler){
                 parsedElements.push(`<span class="text">${spoilerifyText(data)}</span>`);
                 return;
             }
             parsedElements.push(`<span class="text">${data}</span>`);
+            return;
+        }
+        if(type === 'emoji'){
+            parsedElements.push(`<span class="emoji">${data}</span>`);
             return;
         }
         if(isEmoteZeroWidth(data.name) && data.rendered){
@@ -276,6 +280,7 @@ const processSessionData = (sessionData) => {
 
 const processFieldData = (fieldData) => {
     data.largeEmotes = fieldData.largeEmotes === 'true';
+    data.emojiAsEmotes = fieldData.emojiAsEmotes === 'true';
     data.raidMessages = fieldData.raidMessages === 'true';
     data.subMessages = fieldData.subMessages === 'true';
     data.followMessages = fieldData.followMessages === 'true';
@@ -333,13 +338,22 @@ const formatText = (text) => {
 };
 
 const processMessageText = (text, emotes) => {
-    if (!emotes || emotes.length === 0) {
+    const emojiRegex = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
+    const hasNoEmotes = !emotes || emotes.length === 0;
+    let isPlainText = hasNoEmotes;
+    if(data.emojiAsEmotes){
+        const hasEmojis = text.match(emojiRegex);
+        isPlainText = isPlainText && !hasEmojis;
+    }
+
+    if (isPlainText) {
         return [{ type: 'text', data: formatText(text) }];
     }
 
-    const emoteRegex = createEmoteRegex(emotes.map(e => htmlEncode(e.name)))
+    const emoteRegex = createEmoteRegex(emotes.map(e => htmlEncode(e.name)));
 
-    const textObjects = text.split(emoteRegex).map(string => ({ type: 'text', data: formatText(string) }));
+
+    const textObjects = text.split(emoteRegex).map(string => ({ type: 'text', data: string }));
     const lastTextObject = textObjects.pop();
 
     const parsedText = textObjects.reduce((acc, textObj, index) => {
@@ -347,7 +361,39 @@ const processMessageText = (text, emotes) => {
     }, []);
 
     parsedText.push(lastTextObject);
-    return parsedText.filter(({data, type}) => type === 'emote' || !!data.trim());
+    const messageDataWithEmotes = parsedText.filter(({data, type}) => type === 'emote' || !!data.trim());
+    if(!data.emojiAsEmotes){
+        return messageDataWithEmotes.map(({data, type}) => {
+            if(type === 'text'){
+                return {data: formatText(data), type};
+            }
+            return {data,type};
+        });
+    }
+    let messageDataWithEmoji = [];
+    messageDataWithEmotes.forEach(({data, type}) => {
+        if(type === 'emote'){
+            messageDataWithEmoji.push({data, type});
+            return;
+        }
+        const textSplit = data.split(emojiRegex).map(string => ({ type: 'text', data: string }));
+        const newTextObjects = textSplit.map((textObj) => {
+            if(textObj.data.match(emojiRegex)){
+                return {...textObj, type: 'emoji'};
+            }
+            return textObj;
+        });
+
+        messageDataWithEmoji = [...messageDataWithEmoji, ...newTextObjects];
+    });
+    return messageDataWithEmoji
+        .filter(({data, type}) => type !== 'text' || !!data.trim())
+        .map(({data, type}) => {
+        if(type === 'text'){
+            return {data: formatText(data), type};
+        }
+        return {data,type};
+    });;
 };
 
 const isEmoteZeroWidth = (emoteText) =>  ZERO_WIDTH_EMOTES.includes(emoteText);
@@ -356,11 +402,11 @@ const calcEmoteSize = (messageContentsArray) => {
     if(!data.largeEmotes){
         return 'small-emotes';
     }
-    const hasText = messageContentsArray.filter(({type}) => type !== 'emote').length > 0;
+    const hasText = messageContentsArray.filter(({type}) => type === 'text').length > 0;
     if(hasText){
         return 'small-emotes';
     }
-    const allEmotes = messageContentsArray.filter(({type}) => type === 'emote');
+    const allEmotes = messageContentsArray.filter(({type}) => type !== 'text');
     const nonZeroWidthEmotes = allEmotes.filter(({data}) => !isEmoteZeroWidth(data?.name));
     const numberOfEmotes = nonZeroWidthEmotes.length;
     return numberOfEmotes === 1 ? 'large-emotes' : 'medium-emotes';

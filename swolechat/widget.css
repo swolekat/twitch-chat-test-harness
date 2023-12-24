@@ -640,6 +640,22 @@ animation: fade reverse .5s,
     -webkit-text-stroke-color: #061062;
 }
 
+.lyricalpanther {
+
+}
+
+.lyricalpanther .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/panther.png") #000;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    color: #ba0300 !important;
+}
+
+.lyricalpanther .message-section *  {
+    font-family: 'Grey Qo', cursive !important;
+}
+
 /* bored MUST be last*/
 .bored .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;

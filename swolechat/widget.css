@@ -434,7 +434,7 @@ animation: fade reverse .5s,
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/team.gif");
     background-size: cover;
     background-position: center;
-    color: #29dc7c !important;
+    color: #fff !important;
 }
 
 .vip .message-section {

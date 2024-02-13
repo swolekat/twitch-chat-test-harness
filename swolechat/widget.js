@@ -475,6 +475,10 @@ const getClassFromEventData = ({userId, badges, name}) => {
         allClasses = window.idToClassMap[userId];
     }
 
+    if(window.teamIds && teamIds.includes(userId)){
+        allClasses = `${allClasses} invalid-gateway`;
+    }
+
     return Object.keys(classFromObjMap).reduce((sum, key) => {
         const func = classFromObjMap[key];
         if(!func(badges, name)){

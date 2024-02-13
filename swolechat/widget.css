@@ -430,6 +430,13 @@ animation: fade reverse .5s,
     padding: 0;
 }
 
+.invalid-gateway .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/team.gif");
+    background-size: cover;
+    background-position: center;
+    color: #29dc7c !important;
+}
+
 .vip .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
     background-size: cover;

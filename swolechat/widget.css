@@ -430,12 +430,6 @@ animation: fade reverse .5s,
     padding: 0;
 }
 
-.invalid-gateway .message-section {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/team.gif");
-    background-size: cover;
-    background-position: center;
-    color: #fff !important;
-}
 
 .vip .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/shimmering.gif");
@@ -674,6 +668,13 @@ animation: fade reverse .5s,
 }
 
 /* bored MUST be last*/
+.invalid-gateway .message-section {
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/team.gif");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+
 .bored .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/bored.jpg") !important;
     background-size: cover !important;

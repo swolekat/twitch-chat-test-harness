@@ -614,6 +614,11 @@ animation: fade reverse .5s,
     font-family: "Castoro Titling", sans-serif !important;
 }
 
+.stjimmy1995.mod .message-wrapper {
+    background: none;
+    padding: 0;
+}
+
 .stjimmy1995 .message-section {
     background: url("https://swolekat.github.io/twitch-chat-test-harness/images/lain.gif") #000;
     background-size: contain;

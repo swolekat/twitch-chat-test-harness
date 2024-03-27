@@ -62,7 +62,8 @@ const ZERO_WIDTH_EMOTES = [
     'vp',
     'Wanking',
     'spilledGlue',
-    'pepehoodie'
+    'pepehoodie',
+    'Fuckyou0'
 ];
 
 const classFromTextMap = {

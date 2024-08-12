@@ -479,7 +479,7 @@ animation: fade reverse .5s,
 }
 
 .toxic-twinky .message-section {
-    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/biohazard-xxl.png");
+    background: url("https://swolekat.github.io/twitch-chat-test-harness/images/biohazard-xxl.png") #fff;
     background-size: cover;
     background-position: center;
     color: #000 !important;
